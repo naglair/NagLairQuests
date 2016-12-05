@@ -1,0 +1,65 @@
+sub EVENT_SAY {
+	################
+	my @regularbuffs = (276,278,219,368,146,148,279,129);
+	my @advancedbuffs = (3692,2505,423,356,172,64,145,1693,15,60,61,46,2524);
+	# my @advancedbuff = (	
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#						[3692,2505,423,356,172,64,145,1693,15,60,61,46,2524],
+	#					);
+	################
+	if ($text =~/Hail/i) { 
+		plugin::Whisper("Greetings $name. I have been sent to aid you on your journey! Would you like a ".
+						"[".quest::saylink ("cure", 1)."], some [".quest::saylink ("buffs", 1)."], a ".
+						"[".quest::saylink ("bind", 1)."] to this location or ".
+						"[".quest::saylink ("advanced blessings")."] for 100pp?"); }
+	elsif ($text=~/cure/i) { 
+		if ($client->GetPetID()) {
+			my $pppet = $entity_list->GetMobByID($client->GetPetID());
+			$client->SpellFinished (6594, $pppet);
+		}
+		$client->SpellFinished(6594); 
+	}
+	elsif ($text=~/buffs/i) {
+		foreach my $buff (@regularbuffs) {
+			if ($client->GetPetID()) {
+				my $pcpet = $entity_list->GetMobByID($client->GetPetID());
+				$client->SpellFinished ($buff, $pcpet);
+			}
+			quest::selfcast ($buff);
+		}
+	}
+	elsif ($text=~/bind/i) {
+		quest::selfcast(35);
+	}
+	elsif ($text =~/advanced/i) {  
+		if ($client->GetCarriedMoney() >= 100000) {
+			my $divlevel = ( round_up($ulevel) / 10);
+			$client->TakeMoneyFromPP(100000, 1);
+			foreach my $buff (@advancedbuffs) {
+				if ($client->GetPetID()) {
+					my $pcpet = $entity_list->GetMobByID($client->GetPetID());
+					$client->SpellFinished ($buff, $pcpet);
+				}
+				quest::selfcast ($buff);
+			}
+		}
+		else {
+			plugin::Whisper ("I charge ".(100 * $divlevel)."pp for advanced blessings.");
+		}
+	}
+}
+
+sub round_up {
+	my $n = shift;
+	my $scale = 10**int(log($n)/log(10));
+	$n = 9 if $scale == 1;
+	if ($n > $scale) {
+		$n = int($n/$scale+1)*$scale;
+	}
+	$n;
+}

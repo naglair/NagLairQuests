@@ -1,0 +1,380 @@
+$level_for_tier_two = 55;
+$level_for_tier_three = 62;
+$level_for_tier_three_five = 255;
+$level_for_elemental = 255;
+
+sub EVENT_ENTERZONE {
+  if(($qglobals{flagging}) >= 4) {
+	#$client->Message(15," flagged to enter PoP zone'");
+ 
+	 #quest::movepc(241,251,33,5);
+		}
+		if(($qglobals{flagging})<4) {
+	 #$client->Message(15," not flagged to enter PoP zone.'");
+	 $client->Message(15,"A Terrible ringing echoes in your head, 'You are not worthy. Speak to the Planes Keeper to gain access here!'");
+ quest::movepc(344, 252, 411, 2);
+		}
+    
+ }
+ 
+sub EVENT_CLICKDOOR {
+  #valor/storms
+  if($doorid == 16 || $doorid == 21) {
+    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_poj_mavuin} &&  defined $qglobals{pop_poj_tribunal} &&  defined $qglobals{pop_poj_valor_storms})) {
+      if(quest::has_zone_flag(210) != 1 || quest::has_zone_flag(208) != 1) {
+        quest::set_zone_flag(210);
+        quest::set_zone_flag(208);
+      }
+    }
+  }
+  
+  #codecay
+  if($doorid == 12) {
+    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel}) || (defined $qglobals{pop_alt_access_codecay})) {
+      if(quest::has_zone_flag(200) != 1) {
+        quest::set_zone_flag(200);
+      }
+    }
+  }
+  
+  #torment
+  if($doorid == 93) {
+    if($client->GetLevel() >= $level_for_tier_two || (defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel} && defined $qglobals{pop_pon_construct} && defined $qglobals{pop_pon_hedge_jezith} && defined $qglobals{pop_ponb_terris} && defined $qglobals{pop_ponb_poxbourne} &&  defined $qglobals{pop_cod_preflag} && defined $qglobals{pop_cod_bertox} && defined $qglobals{pop_cod_final}) || (defined $qglobals{pop_alt_access_potorment})) {
+      if(quest::has_zone_flag(207) != 1) {
+        quest::set_zone_flag(207);
+      }
+    }
+  }
+  
+  #bothunder
+  if($doorid == 48) {
+    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && (defined $qglobals{pop_pos_askr_the_lost} && $qglobals{pop_pos_askr_the_lost} == 3) && defined $qglobals{pop_pos_askr_the_lost_final})) {
+      if(quest::has_zone_flag(209) != 1) {
+        quest::set_zone_flag(209);
+      }
+    }
+  }
+
+  #hohonora
+  if($doorid == 23) {
+    if($client->GetLevel() >= $level_for_tier_three || (defined $qglobals{pop_poj_mavuin} && defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar}) || (defined $qglobals{pop_alt_access_hohonora})) {
+      if(quest::has_zone_flag(211) != 1) {
+        quest::set_zone_flag(211);
+      }
+    }
+  }
+
+  #potactics
+  if($doorid == 24) {
+    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag}) || (defined $qglobals{pop_alt_access_potactics})) {
+      if(quest::has_zone_flag(214) != 1) {
+        quest::set_zone_flag(214);
+      }
+    }
+  }  
+  
+  #solrotower
+  if($doorid == 22) {
+    if($client->GetLevel() >= $level_for_tier_three_five || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag} && defined $qglobals{pop_tactics_tallon} && defined $qglobals{pop_tactics_vallon} && defined $qglobals{pop_pot_saryrn_final} && defined $qglobals{pop_pot_saryrn} && defined $qglobals{pop_hohb_marr}) || (defined $qglobals{pop_alt_access_solrotower})) {
+      if(quest::has_zone_flag(212) != 1) {
+        quest::set_zone_flag(212);
+      }
+    }
+  }
+  
+  #pofire
+  if($doorid == 82) {
+    if($client->GetLevel() >= $level_for_elemental || (defined $qglobals{pop_poi_behometh_preflag} && defined $qglobals{pop_poi_behometh_flag} && defined $qglobals{pop_tactics_tallon} && defined $qglobals{pop_tactics_vallon} && defined $qglobals{pop_tactics_ralloz} && defined $qglobals{pop_sol_ro_arlyxir} && defined $qglobals{pop_sol_ro_jiva} && defined $qglobals{pop_sol_ro_rizlona} &&  defined $qglobals{pop_sol_ro_dresolik} && defined $qglobals{pop_sol_ro_xuzl} && defined $qglobals{pop_sol_ro_solusk} && defined $qglobals{pop_hohb_marr})) {
+      if(quest::has_zone_flag(217) != 1) {
+        quest::set_zone_flag(217);
+      }
+    }
+  }
+
+  #powater/poearth/poair
+  if($doorid == 81 || $doorid == 83 || $doorid == 84) {
+    if($client->GetLevel() >= $level_for_elemental || (defined $qglobals{pop_hohb_marr} && defined $qglobals{pop_bot_agnarr} && defined $qglobals{pop_pon_hedge_jezith} && defined $qglobals{pop_pon_construct} && defined $qglobals{pop_ponb_terris} && defined $qglobals{pop_ponb_poxbourne} && defined $qglobals{pop_pod_alder_fuirstel} && defined $qglobals{pop_pod_grimmus_planar_projection} && defined $qglobals{pop_pod_elder_fuirstel} && defined $qglobals{pop_poj_mavuin} &&  defined $qglobals{pop_poj_tribunal} && defined $qglobals{pop_poj_valor_storms} && defined $qglobals{pop_pov_aerin_dar} && defined $qglobals{pop_pos_askr_the_lost} && $qglobals{pop_pos_askr_the_lost} == 3 && defined $qglobals{pop_pos_askr_the_lost_final} && defined $qglobals{pop_cod_preflag} && defined $qglobals{pop_cod_bertox} && defined $qglobals{pop_cod_final} &&  defined $qglobals{pop_pot_shadyglade} && defined $qglobals{pop_pot_saryrn} && defined $qglobals{pop_pot_saryrn_final} && defined $qglobals{pop_hoh_faye} && defined $qglobals{pop_hoh_trell} && defined $qglobals{pop_hoh_garn} && defined $qglobals{pop_elemental_grand_librarian})) {
+      if(quest::has_zone_flag(216) != 1 || quest::has_zone_flag(215) != 1 || quest::has_zone_flag(218) != 1) {
+        quest::set_zone_flag(216);
+        quest::set_zone_flag(215);
+        quest::set_zone_flag(218);
+      }
+    }
+  }
+  
+  $qglobals{pop_pon_hedge_jezith}=undef;
+  $qglobals{pop_pon_construct}=undef;
+  $qglobals{pop_ponb_terris}=undef;
+  $qglobals{pop_ponb_poxbourne}=undef;
+  $qglobals{pop_poi_dragon}=undef;
+  $qglobals{pop_poi_behometh_preflag}=undef;
+  $qglobals{pop_poi_behometh_flag}=undef;
+  $qglobals{pop_pod_alder_fuirstel}=undef;
+  $qglobals{pop_pod_grimmus_planar_projection}=undef;
+  $qglobals{pop_pod_elder_fuirstel}=undef;
+  $qglobals{pop_poj_mavuin}=undef;
+  $qglobals{pop_poj_tribunal}=undef;
+  $qglobals{pop_poj_valor_storms}=undef;
+  $qglobals{pop_poj_execution}=undef;
+  $qglobals{pop_poj_flame}=undef;
+  $qglobals{pop_poj_hanging}=undef;
+  $qglobals{pop_poj_lashing}=undef;
+  $qglobals{pop_poj_stoning}=undef;
+  $qglobals{pop_poj_torture}=undef;
+  $qglobals{pop_pov_aerin_dar}=undef;
+  $qglobals{pop_pos_askr_the_lost}=undef;
+  $qglobals{pop_pos_askr_the_lost_final}=undef;
+  $qglobals{pop_cod_preflag}=undef;
+  $qglobals{pop_cod_bertox}=undef;
+  $qglobals{pop_cod_final}=undef;
+  $qglobals{pop_pot_shadyglade}=undef;
+  $qglobals{pop_pot_newleaf}=undef;
+  $qglobals{pop_pot_saryrn}=undef;
+  $qglobals{pop_pot_saryrn_final}=undef;
+  $qglobals{pop_hoh_faye}=undef;
+  $qglobals{pop_hoh_trell}=undef;
+  $qglobals{pop_hoh_garn}=undef;
+  $qglobals{pop_hohb_marr}=undef;
+  $qglobals{pop_bot_agnarr}=undef;
+  $qglobals{pop_bot_karana}=undef;
+  $qglobals{pop_tactics_tallon}=undef;
+  $qglobals{pop_tactics_vallon}=undef;
+  $qglobals{pop_tactics_ralloz}=undef;
+  $qglobals{pop_elemental_grand_librarian}=undef;
+  $qglobals{pop_sol_ro_arlyxir}=undef;
+  $qglobals{pop_sol_ro_dresolik}=undef;
+  $qglobals{pop_sol_ro_jiva}=undef;
+  $qglobals{pop_sol_ro_rizlona}=undef;
+  $qglobals{pop_sol_ro_xuzl}=undef;
+  $qglobals{pop_sol_ro_solusk}=undef;
+  $qglobals{pop_fire_fennin_projection}=undef;
+  $qglobals{pop_wind_xegony_projection}=undef;
+  $qglobals{pop_water_coirnav_projection}=undef;
+  $qglobals{pop_eartha_arbitor_projection}=undef;
+  $qglobals{pop_earthb_rathe}=undef;
+  $qglobals{pop_time_maelin}=undef;
+  $qglobals{pop_alt_access_codecay}=undef;
+  $qglobals{pop_alt_access_potorment}=undef;
+  $qglobals{pop_alt_access_potactics}=undef;
+  $qglobals{pop_alt_access_solrotower}=undef;
+}
+
+sub EVENT_COMBINE_SUCCESS {
+  if (($recipe_id == 10904) || ($recipe_id == 10905) || ($recipe_id == 10906) || ($recipe_id == 10907)) {
+    $client->Message(15,"The gem resonates with power as the shards placed within glow unlocking some of the stone's power. You were successful in assembling most of the stone but there are four slots left to fill, where could those four pieces be?");
+  }
+  if ($recipe_id == 10903) {
+    if (($class eq "Bard") || ($class eq "Beastlord") || ($class eq "Paladin") || ($class eq "Ranger") ||  ($class eq "Shadowknight")) {
+      quest::summonitem(67666);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Warrior") || ($class eq "Monk") || ($class eq "Berserker")  || ($class eq "Rogue"))  {
+      quest::summonitem(67665);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Cleric") || ($class eq "Shaman") || ($class eq "Druid")) {
+      quest::summonitem(67667);  
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Necromancer") || ($class eq "Wizard") || ($class eq "Enchanter")  || ($class eq "Magician")) {
+      quest::summonitem(67668);
+      quest::summonitem(67704);
+    }
+    $client->Message(1,"Success");
+  }
+  if ($recipe_id == 10346) {
+    if (($class eq "Bard") || ($class eq "Beastlord") || ($class eq "Paladin") || ($class eq "Ranger") ||  ($class eq "Shadowknight")) {
+      quest::summonitem(67661);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Warrior") || ($class eq "Monk") || ($class eq "Berserker")  || ($class eq "Rogue"))  {
+      quest::summonitem(67660);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Cleric") || ($class eq "Shaman") || ($class eq "Druid")) {
+      quest::summonitem(67662);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Necromancer") || ($class eq "Wizard") || ($class eq "Enchanter")  || ($class eq "Magician")) {
+      quest::summonitem(67663);
+      quest::summonitem(67704);
+    }
+    $client->Message(1,"Success");
+  }
+  if ($recipe_id == 10334) {
+    if (($class eq "Bard") || ($class eq "Beastlord") || ($class eq "Paladin") || ($class eq "Ranger") ||  ($class eq "Shadowknight")) {
+      quest::summonitem(67654);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Warrior") || ($class eq "Monk") || ($class eq "Berserker")  || ($class eq "Rogue"))  {
+      quest::summonitem(67653);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Cleric") || ($class eq "Shaman") || ($class eq "Druid")) {
+      quest::summonitem(67655);
+      quest::summonitem(67704);
+    }
+    elsif (($class eq "Necromancer") || ($class eq "Wizard") || ($class eq "Enchanter")  || ($class eq "Magician")) {
+      quest::summonitem(67656);
+      quest::summonitem(67704);
+    }
+    $client->Message(1,"Success");
+  }
+}
+
+sub EVENT_LEVEL_UP
+{
+	quest::scribespells($ulevel);
+	quest::traindiscs($ulevel); 
+	$myclass=$class;
+	if($myclass eq "Shadowknight")
+	{
+		if($ulevel==6){quest::setskill("10",($ulevel));}
+		if($ulevel==10){quest::setskill("19",($ulevel));}
+		if($ulevel==17){quest::setskill("34",($ulevel));}
+		if($ulevel==20){quest::setskill("20",($ulevel));}
+		if($ulevel==30){quest::setskill("37",($ulevel));}
+		if($ulevel==40){quest::setskill("16",($ulevel));}
+	}
+	
+	if($myclass eq "Warrior")
+	{
+		if($ulevel==6)
+		{
+			quest::setskill("10",($ulevel));
+			quest::setskill("19",($ulevel));
+		}
+		if($ulevel==10){quest::setskill("34",($ulevel));}
+		if($ulevel==13){quest::setskill("22",($ulevel));}
+		if($ulevel==15){quest::setskill("20",($ulevel));}
+		if($ulevel==25){quest::setskill("37",($ulevel));}
+		if($ulevel==35){quest::setskill("16",($ulevel));}
+	}
+	if($myclass eq "Necro"||$myclass eq "Enchanter"||
+		$myclass eq "Magician"||$myclass eq "Wizard")
+	{
+		if($ulevel==16)
+		{
+			quest::setskill("58",($ulevel));
+		}
+		if($ulevel==20){quest::setskill("43",($ulevel));}
+		if($ulevel==20){quest::setskill("44",($ulevel));}
+		if($ulevel==20){quest::setskill("45",($ulevel));}
+		if($ulevel==20){quest::setskill("46",($ulevel));}
+		if($ulevel==20){quest::setskill("47",($ulevel));}
+		if($ulevel==20){$client->Message(5,"Remember you can only get 1 specializtion
+		over 50, the first one over 50 becomes your specialization");}
+
+		if($ulevel==22){quest::setskill("19",($ulevel));}
+	}
+	if($myclass eq "Cleric"){if($ulevel==25){quest::setskill("10",($ulevel));}}
+	if($myclass eq "Shaman"){if($ulevel==25){quest::setskill("59",($ulevel));}}
+	if($myclass eq "Druid")
+	{
+		if($ulevel==5){quest::setskill("27",($ulevel));}
+		if($ulevel==20){quest::setskill("53",($ulevel));}
+	}
+	if($myclass eq "Druid"||$myclass eq "Shaman"||$myclass eq "Cleric")
+	{
+		if($ulevel==15){quest::setskill("19",($ulevel));}
+		if($ulevel==30){quest::setskill("43",($ulevel));}
+		if($ulevel==30){quest::setskill("44",($ulevel));}
+		if($ulevel==30){quest::setskill("45",($ulevel));}
+		if($ulevel==30){quest::setskill("46",($ulevel));}
+		if($ulevel==30){quest::setskill("47",($ulevel));}
+		if($ulevel==30){$client->Message(5,"Remember you can only get 1 specialization
+		over 50, the first one over 50 becomes your specialization");}
+	}
+	if($myclass eq "Rogue")
+	{
+		if($ulevel==4){quest::setskill("19",($ulevel));}
+		if($ulevel==5){quest::setskill("35",($ulevel));}
+		if($ulevel==7){quest::setskill("48",($ulevel));}
+		if($ulevel==10){quest::setskill("62",($ulevel));}
+		if($ulevel==10){quest::setskill("8",($ulevel));}
+		if($ulevel==12){quest::setskill("34",($ulevel));}
+		if($ulevel==12){quest::setskill("39",($ulevel));}
+		if($ulevel==13){quest::setskill("22",($ulevel));}
+		if($ulevel==15){quest::setskill("17",($ulevel));}
+		if($ulevel==16){quest::setskill("20",($ulevel));}
+		if($ulevel==18){quest::setskill("6",($ulevel));}
+		if($ulevel==20){quest::setskill("56",($ulevel));}
+		if($ulevel==22){quest::setskill("71",($ulevel));}
+		if($ulevel==27){quest::setskill("16",($ulevel));}
+	}
+	if($myclass eq "Ranger")
+	{
+		if($ulevel==5){quest::setskill("30",($ulevel));}
+		if($ulevel==8){quest::setskill("19",($ulevel));}
+		if($ulevel==10){quest::setskill("42",($ulevel));}
+		if($ulevel==17){quest::setskill("22",($ulevel));}
+		if($ulevel==18){quest::setskill("34",($ulevel));}
+		if($ulevel==20){quest::setskill("20",($ulevel));}
+		if($ulevel==35){quest::setskill("17",($ulevel));}
+		if($ulevel==35){quest::setskill("37",($ulevel));}
+	}
+	if($myclass eq "Monk")
+	{
+		if($ulevel==3){quest::setskill("39",($ulevel));}
+		if($ulevel==5){quest::setskill("38",($ulevel));}
+		if($ulevel==8){quest::setskill("42",($ulevel));}
+		if($ulevel==10){quest::setskill("52",($ulevel));}
+		if($ulevel==12){quest::setskill("11",($ulevel));}
+		if($ulevel==15){quest::setskill("20",($ulevel));}
+		if($ulevel==17){quest::setskill("28",($ulevel));}
+		if($ulevel==18){quest::setskill("71",($ulevel));}
+		if($ulevel==20){quest::setskill("23",($ulevel));}
+		if($ulevel==25){quest::setskill("21",($ulevel));}
+		if($ulevel==27){quest::setskill("17",($ulevel));}
+		if($ulevel==30){quest::setskill("26",($ulevel));}
+		if($ulevel==35){quest::setskill("37",($ulevel));}
+	}
+	if($myclass eq "Bard")
+	{
+		if($ulevel==5){quest::setskill("70",($ulevel));}
+		if($ulevel==8){quest::setskill("49",($ulevel));}
+		if($ulevel==10){quest::setskill("31",($ulevel));}
+		if($ulevel==10){quest::setskill("35",($ulevel));}
+		if($ulevel==11){quest::setskill("12",($ulevel));}
+		if($ulevel==12){quest::setskill("27",($ulevel));}
+		if($ulevel==14){quest::setskill("54",($ulevel));}
+		if($ulevel==15){quest::setskill("62",($ulevel));}
+		if($ulevel==17){quest::setskill("22",($ulevel));}
+		if($ulevel==17){quest::setskill("42",($ulevel));}
+		if($ulevel==20){quest::setskill("17",($ulevel));}
+		if($ulevel==24){quest::setskill("39",($ulevel));}
+		if($ulevel==25){quest::setskill("29",($ulevel));}
+		if($ulevel==26){quest::setskill("71",($ulevel));}
+		if($ulevel==35){quest::setskill("53",($ulevel));}
+		if($ulevel==53){quest::setskill("34",($ulevel));}
+		if($ulevel==58){quest::setskill("37",($ulevel));}
+	}
+	if($myclass eq "Paladin")
+	{
+		if($ulevel==6){quest::setskill("10",($ulevel));}
+		if($ulevel==10){quest::setskill("19",($ulevel));}
+		if($ulevel==17){quest::setskill("34",($ulevel));}
+		if($ulevel==20){quest::setskill("20",($ulevel));}
+		if($ulevel==30){quest::setskill("37",($ulevel));}
+		if($ulevel==40){quest::setskill("16",($ulevel));}
+	}
+	if($myclass eq "Beastlord")
+	{
+		if($ulevel==5){quest::setskill("30",($ulevel));}
+		if($ulevel==10){quest::setskill("19",($ulevel));}
+		if($ulevel==17){quest::setskill("22",($ulevel));}
+		if($ulevel==25){quest::setskill("11",($ulevel));}
+		if($ulevel==40){quest::setskill("37",($ulevel));}
+	}
+	if($myclass eq "Berserker")
+	{
+		if($ulevel==6){quest::setskill("74",($ulevel));}
+		if($ulevel==10){quest::setskill("19",($ulevel));}
+		if($ulevel==12){quest::setskill("34",($ulevel));}
+		if($ulevel==15){quest::setskill("20",($ulevel));}
+		if($ulevel==30){quest::setskill("37",($ulevel));}
+		if($ulevel==35){quest::setskill("16",($ulevel));}
+	}
+
+
+}

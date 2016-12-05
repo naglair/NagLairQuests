@@ -1,0 +1,917 @@
+################################################
+#
+# MODIFY ITEM REWARDS HERE
+# 
+# REWARDS
+#
+################################################
+%Rewards = (				#Name each item appropriately for use Charm rewards
+#Solo charm rewards
+"charm2" =>			1353,	#Elixir of the treant (rank2) (Quest giver reward)
+"charm3" =>			1373,	#Elixir of the treant (rank3) (Quest giver reward)
+"charm4" =>			1374,	#Elixir of the treant (rank4) (Quest giver reward)
+"charm5" =>			1375,	#Elixir of the treant (rank5) (Quest giver reward)
+"charm6" =>			1563,	#Elixir of the treant (rank6) (Quest giver reward)
+#Raid charm rewards
+"raid_charm2" =>	1261,	#Treant Bark Charm (rank1) (Quest giver reward)
+"raid_charm3" =>	1377,	#Treant Bark Charm (rank2) (Quest giver reward)
+"raid_charm4" =>	1378,	#Treant Bark Charm (rank3) (Quest giver reward)
+"raid_charm5" =>	1379,	#Treant Bark Charm (rank4) (Quest giver reward)
+"raid_charm6" =>	1380,	#Treant Bark Charm (rank5) (Quest giver reward)
+#Guild Charm rewards
+"guild_charm2" =>	1568,	#Treant Charm (Guild Rank1) (Quest giver reward)
+"guild_charm3" =>	1569,	#Treant Charm (Guild Rank2) (Quest giver reward)
+"guild_charm4" =>	1577,	#Treant Charm (Guild Rank3) (Quest giver reward)
+"guild_charm5" =>	1579,	#Treant Charm (Guild Rank4) (Quest giver reward)
+"guild_charm6" =>	1581,	#Treant Charm (Guild Rank5) (Quest giver reward)
+);
+
+################################################
+#
+# MODIFY TASK ID's HERE
+#
+################################################
+%Task = (				#Name each Task appropriately for use Task Assign
+#Solo charm
+"s_task1" =>	224,	#Solo charm 1(task id 224)
+"s_task2" =>	222,	#Solo charm 2(task id 222)
+"s_task3" =>	225,	#Solo charm 3(task id 225)
+"s_task4" =>	227,	#Solo charm 4(task id 227)
+"s_task5" =>	229,	#Solo charm 5(task id 229)
+#Raid charm
+"r_task1" =>	231,	#Raid charm 1(task id 231)
+"r_task2" =>	233,	#Raid charm 2(task id 233)
+"r_task3" =>	235,	#Raid charm 3(task id 235)
+"r_task4" =>	237,	#Raid charm 4(task id 237)
+"r_task5" =>	239,	#Raid charm 5(task id 239)
+#Guild Charm
+"g_task1" =>	241,	#Guild charm 1(task id 241)
+"g_task2" =>	243,	#Guild charm 2(task id 243)
+"g_task3" =>	245,	#Guild charm 3(task id 245)
+"g_task4" =>	247,	#Guild charm 4(task id 247)
+"g_task5" =>	249,	#Guild charm 5(task id 249)
+);
+
+################################################
+#
+# MODIFY HERE
+# 
+# REQUIRED QUEST TURNINS
+#
+################################################
+#Solo Section
+my $solo_charm1 =				1372;		#Elixir of the treant (rank1) (Quest giver reward)
+my $solo_charm2 =				1353;		#Elixir of the treant (rank2) (Quest giver reward)
+my $solo_charm3 =				1373;		#Elixir of the treant (rank3) (Quest giver reward)
+my $solo_charm4 =				1374;		#Elixir of the treant (rank4) (Quest giver reward)
+my $solo_charm5 =				1375;		#Elixir of the treant (rank5) (Quest giver reward)
+my $solo_charm6 =				1563;		#Elixir of the treant (Rank6) (Quest giver reward)
+my $solo_quest_charm1 =			1449;		#Solo EXP Quest Token (Rank 1)  (crystal caverns)
+my $solo_quest_charm2 =			1661;		#Solo EXP Quest Token (Rank 1)  (Zonename) 
+my $solo_quest_charm3 =			1662;		#Solo EXP Quest Token (Rank 1)  (Zonename)
+my $solo_quest_charm4 =			1663;		#Solo EXP Quest Token (Rank 1)  (Zonename)
+my $solo_quest_charm5 =			1664;		#Solo EXP Quest Token (Rank 1)  (Zonename)
+my $solo_token1 =				1806;		#Solo EXP Charm Token (Rank 1) (task id 224)
+my $solo_token2 =				1450;		#Solo EXP Charm Token (Rank 1) (task id 222)
+my $solo_token3 =				1458;		#Solo EXP Charm Token (Rank 1) (task id 225)
+my $solo_token4 =				1502;		#Solo EXP Charm Token (Rank 1) (task id 227)
+my $solo_token5 =				1503;		#Solo EXP Charm Token (Rank 1) (task id 229)
+#RAID Section
+my $solo_raid_charm2 =			1261;		#Treant Bark Charm (rank1) (Quest giver reward)
+my $solo_raid_charm3 =			1377;		#Treant Bark Charm (rank2) (Quest giver reward)
+my $solo_raid_charm4 =			1378;		#Treant Bark Charm (rank3) (Quest giver reward)
+my $solo_raid_charm5 =			1379;		#Treant Bark Charm (rank4) (Quest giver reward)
+my $solo_raid_charm6 =			1380;		#Treant Bark Charm (rank5) (Quest giver reward)
+my $solo_raid_quest_charm1 =	1716;		#Solo RAID Quest Token (Rank 1)  (Zonename)
+my $solo_raid_quest_charm2 =	1732;		#Solo RAID Quest Token (Rank 2)  (Zonename)
+my $solo_raid_quest_charm3 =	1733;		#Solo RAID Quest Token (Rank 3)  (Zonename)
+my $solo_raid_quest_charm4 =	1734;		#Solo RAID Quest Token (Rank 4)  (Zonename)
+my $solo_raid_quest_charm5 =	1800;		#Solo RAID Quest Token (Rank 5)  (Zonename)
+my $solo_raid_token1 =			1586;		#Solo RAID Charm Token (Rank 1) (task id 231)
+my $solo_raid_token2 =			1587;		#Solo RAID Charm Token (Rank 2) (task id 233)
+my $solo_raid_token3 =			1591;		#Solo RAID Charm Token (Rank 3) (task id 235)
+my $solo_raid_token4 =			1592;		#Solo RAID Charm Token (Rank 4) (task id 237)
+my $solo_raid_token5 =			1660;		#Solo RAID Charm Token (Rank 5) (task id 239)
+#GUILD raid section
+my $guild_raid_charm2 =			1568;		#Treant Charm (Guild Rank1) (Quest giver reward)
+my $guild_raid_charm3 =			1569;		#Treant Charm (Guild Rank2) (Quest giver reward)
+my $guild_raid_charm4 =			1577;		#Treant Charm (Guild Rank3) (Quest giver reward)
+my $guild_raid_charm5 =			1579;		#Treant Charm (Guild Rank4) (Quest giver reward)
+my $guild_raid_charm6 =			1581;		#Treant Charm (Guild Rank5) (Quest giver reward)
+my $guild_quest_charm1 =		1801;		#Guild Quest Token (Rank 1)  (Zonename)
+my $guild_quest_charm2 =		1802;		#Guild Quest Token (Rank 2)  (Zonename)
+my $guild_quest_charm3 =		1803;		#Guild Quest Token (Rank 3)  (Zonename)
+my $guild_quest_charm4 =		1804;		#Guild Quest Token (Rank 4)  (Zonename)
+my $guild_quest_charm5 =		1805;		#Guild Quest Token (Rank 5)  (Zonename)
+my $guild_token_charm1 =		1654;		#Guild Charm Token (Rank 1) (task id 241)
+my $guild_token_charm2 =		1655;		#Guild Charm Token (Rank 2) (task id 243)
+my $guild_token_charm3 =		1656;		#Guild Charm Token (Rank 3) (task id 245)
+my $guild_token_charm4 =		1657;		#Guild Charm Token (Rank 4) (task id 247)
+my $guild_token_charm5 =		1658;		#Guild Charm Token (Rank 5) (task id 249)
+####################################################
+
+sub EVENT_SAY {
+###NEW ITEMS###
+#Do NOT modify#
+###############
+my $charm1 = "charm1";
+my $charm2 = "charm2";
+my $charm3 = "charm3";
+my $charm4 = "charm4";
+my $charm5 = "charm5";
+my $charm6 = "charm6";
+my $raid_charm1 = "raid_charm1";
+my $raid_charm2 = "raid_charm2";
+my $raid_charm3 = "raid_charm3";
+my $raid_charm4 = "raid_charm4";
+my $raid_charm5 = "raid_charm5";
+my $raid_charm6 = "raid_charm6";
+my $guild_charm1 = "guild_charm1";
+my $guild_charm2 = "guild_charm2";
+my $guild_charm3 = "guild_charm3";
+my $guild_charm4 = "guild_charm4";
+my $guild_charm5 = "guild_charm5";
+my $guild_charm6 = "guild_charm6";
+#Create Task array for task assignments
+###TASK ID'S###
+#Do NOT modify#
+###############
+my $s_task1 = "s_task1";
+my $s_task2 = "s_task2";
+my $s_task3 = "s_task3";
+my $s_task4 = "s_task4";
+my $s_task5 = "s_task5";
+my $r_task1 = "r_task1";
+my $r_task2 = "r_task2";
+my $r_task3 = "r_task3";
+my $r_task4 = "r_task4";
+my $r_task5 = "r_task5";
+my $g_task1 = "g_task1";
+my $g_task2 = "g_task2";
+my $g_task3 = "g_task3";
+my $g_task4 = "g_task4";
+my $g_task5 = "g_task5";
+#Create the Item Links from the Rewards Array for use in say messages
+###############
+#Do NOT modify#
+###############
+my $charm1_Link = quest::varlink($Rewards{$charm1});
+my $charm2_Link = quest::varlink($Rewards{$charm2});
+my $charm3_Link = quest::varlink($Rewards{$charm3});
+my $charm4_Link = quest::varlink($Rewards{$charm4});
+my $charm5_Link = quest::varlink($Rewards{$charm5});
+my $charm6_Link = quest::varlink($Rewards{$charm6});
+my $raid_charm1_Link = quest::varlink($Rewards{$raid_charm1});
+my $raid_charm2_Link = quest::varlink($Rewards{$raid_charm2});
+my $raid_charm3_Link = quest::varlink($Rewards{$raid_charm3});
+my $raid_charm4_Link = quest::varlink($Rewards{$raid_charm4});
+my $raid_charm5_Link = quest::varlink($Rewards{$raid_charm5});
+my $raid_charm6_Link = quest::varlink($Rewards{$raid_charm6});
+my $guild_charm1_Link = quest::varlink($Rewards{$guild_charm1});
+my $guild_charm2_Link = quest::varlink($Rewards{$guild_charm2});
+my $guild_charm3_Link = quest::varlink($Rewards{$guild_charm3});
+my $guild_charm4_Link = quest::varlink($Rewards{$guild_charm4});
+my $guild_charm5_Link = quest::varlink($Rewards{$guild_charm5});
+my $guild_charm6_Link = quest::varlink($Rewards{$guild_charm6});
+#Create the required quest turnin item links for use in say messages
+###############
+#Do NOT modify#
+###############
+my $charm1_template = quest::varlink($solo_charm1);
+my $charm2_template = quest::varlink($solo_charm2);
+my $charm3_template = quest::varlink($solo_charm3);
+my $charm4_template = quest::varlink($solo_charm4);
+my $charm5_template = quest::varlink($solo_charm5);
+my $charm6_template = quest::varlink($solo_charm6);
+my $charm1_token = quest::varlink($solo_token1);
+my $charm2_token = quest::varlink($solo_token2);
+my $charm3_token = quest::varlink($solo_token3);
+my $charm4_token = quest::varlink($solo_token4);
+my $charm5_token = quest::varlink($solo_token5);
+my $charm1_quest = quest::varlink($solo_quest_charm1);
+my $charm2_quest = quest::varlink($solo_quest_charm2);
+my $charm3_quest = quest::varlink($solo_quest_charm3);
+my $charm4_quest = quest::varlink($solo_quest_charm4);
+my $charm5_quest = quest::varlink($solo_quest_charm5);
+###############
+#Do NOT modify#
+###############
+my $raid_charm2_template = quest::varlink($solo_raid_charm2);
+my $raid_charm3_template = quest::varlink($solo_raid_charm3);
+my $raid_charm4_template = quest::varlink($solo_raid_charm4);
+my $raid_charm5_template = quest::varlink($solo_raid_charm5);
+my $raid_charm6_template = quest::varlink($solo_raid_charm6);
+my $raid_charm1_token = quest::varlink($solo_raid_token1);
+my $raid_charm2_token = quest::varlink($solo_raid_token2);
+my $raid_charm3_token = quest::varlink($solo_raid_token3);
+my $raid_charm4_token = quest::varlink($solo_raid_token4);
+my $raid_charm5_token = quest::varlink($solo_raid_token5);
+my $raid_charm1_quest = quest::varlink($solo_raid_quest_charm1);
+my $raid_charm2_quest = quest::varlink($solo_raid_quest_charm2);
+my $raid_charm3_quest = quest::varlink($solo_raid_quest_charm3);
+my $raid_charm4_quest = quest::varlink($solo_raid_quest_charm4);
+my $raid_charm5_quest = quest::varlink($solo_raid_quest_charm5);
+###############
+#Do NOT modify#
+###############
+my $guild_charm2_template = quest::varlink($guild_raid_charm2);
+my $guild_charm3_template = quest::varlink($guild_raid_charm3);
+my $guild_charm4_template = quest::varlink($guild_raid_charm4);
+my $guild_charm5_template = quest::varlink($guild_raid_charm5);
+my $guild_charm1_token = quest::varlink($guild_token_charm1);
+my $guild_charm2_token = quest::varlink($guild_token_charm2);
+my $guild_charm3_token = quest::varlink($guild_token_charm3);
+my $guild_charm4_token = quest::varlink($guild_token_charm4);
+my $guild_charm5_token = quest::varlink($guild_token_charm5);
+my $guild_charm1_quest = quest::varlink($guild_quest_charm1);
+my $guild_charm2_quest = quest::varlink($guild_quest_charm2);
+my $guild_charm3_quest = quest::varlink($guild_quest_charm3);
+my $guild_charm4_quest = quest::varlink($guild_quest_charm4);
+my $guild_charm5_quest = quest::varlink($guild_quest_charm5);
+
+##################
+#Message saylinks#
+##################
+my $charms = quest::saylink("charms");
+my $begin = quest::saylink("begin the task");
+
+#####################################
+# Solo Exp Charms START quest script#
+#####################################
+#Check if global is present if not hands starter charm and sets qglobal
+if ($text=~/Hail/i && $charm_upgrade == undef) 
+{
+		$client->Message(315,"$item do not lose this item as it can be upgraded as your
+							 progress through the world. I can tell you about $charms if
+							 you wish to hear about them?");
+				quest::setglobal("charm_upgrade", 1, 5, "F");
+				quest::summonitem(1372);  #Elixir of the Treant (Rank 1)
+ }
+################## 
+#Solo EXP Charm 1#
+##################
+# Checks if global charm_upgrade to 1,
+# so will have a new response when hailed and assign Solo EXP Charm 1 Task
+  if ($text=~/charms/i && $charm_upgrade == 1) {
+			 
+		
+		$client->Message(315, 
+					  "As you progress through levels and content
+					  I am able to offer you charm upgrades. Each charm is stronger
+					  in power than the next. The quests are not easy mind you so
+					  you'd best have your wits about you. would you like to $begin?");
+		}
+#Assign's Solo EXP Charm 1 Task
+ if ($text=~/begin the task/i && $charm_upgrade == 1) 
+			
+		{		  
+		$client->Message(315, 
+					   "The Dwarven citizens within Crystal Caverns have been tormented
+					   by The Spider Queen for too long. Bring me your $charm1_template your
+					   $charm1_quest along with your $charm1_token from my task
+					   reward as proof and I will reward you with $charm2_Link");
+					   quest::assigntask($Task{$s_task1});
+		
+		}
+#Check for global and Doesn't have quest, just incase they missed it.		
+if ($text=~/Hail/i && $charm_upgrade == 1 && !quest::istaskactive($Task{$s_task1}) && !quest::istaskcompleted($Task{$s_task1})) 
+			
+		{		  
+		$client->Message(315, 
+					   "The Dwarven citizens within Crystal Caverns have been tormented
+					   by The Spider Queen for too long. Bring me your $charm1_template your
+					   $charm1_quest along with your $charm1_token from my task
+					   reward as proof and I will reward you with $charm2_Link");
+					   quest::assigntask($Task{$s_task1});
+		
+		}
+		
+		
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 1 && quest::istaskactive($Task{$s_task1}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 1 && quest::istaskcompleted($Task{$s_task1}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm1_template, $charm1_quest and $charm1_token
+					  Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+			  
+###################		
+#Solo EXP Charm 2 #
+###################   
+# Checks if global charm_upgrade to 2 and if task is not assigned and completed yet
+
+	if ($text=~/Hail/i && $charm_upgrade == 2 && !quest::istaskactive($Task{$s_task2}) && !quest::istaskcompleted($Task{$s_task2})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $charm2_template your $charm2_quest along 
+					   with your $charm2_token from my task reward as proof and
+					   I will reward you with $charm3_Link");
+					   quest::assigntask($Task{$s_task2});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 2 && quest::istaskactive($Task{$s_task2}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 2 && quest::istaskcompleted($Task{$s_task2}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm2_template, $charm2_quest and $charm2_token
+					  Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+##################		
+#Solo EXP Charm 3#
+##################	
+# Checks if global charm_upgrade to 3
+# so will have a new response when hailed and assign Solo EXP Charm 3
+
+   if ($text=~/Hail/i && $charm_upgrade == 3 && !quest::istaskactive($Task{$s_task3}) && !quest::istaskcompleted($Task{$s_task3})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $charm3_template and your $charm3_quest along with 
+					   your $charm3_token from my task reward as proof and I will reward
+					   you with $charm4_Link");
+					   quest::assigntask($Task{$s_task3});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 3 && quest::istaskactive($Task{$s_task3}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 3 && quest::istaskcompleted($Task{$s_task3}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm3_template, $charm3_quest and $charm3_token
+					  Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+##################
+#Solo EXP Charm 4#
+##################	
+# Checks if global charm_upgrade to 4
+# so will have a new response when hailed and assign Solo EXP Charm 4 task	
+  if ($text=~/Hail/i && $charm_upgrade == 4 && !quest::istaskactive($Task{$s_task4}) && !quest::istaskcompleted($Task{$s_task4})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $charm4_template your $charm4_quest along 
+					   with your $charm4_token from my task reward as proof and
+					   I will reward you with $charm5_Link");
+					   quest::assigntask($Task{$s_task4});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 4 && quest::istaskactive($Task{$s_task4}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 4 && quest::istaskcompleted($Task{$s_task4}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm4_template, $charm4_quest and $charm4_token
+					  Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+##################		
+#Solo EXP Charm 5#
+##################
+# Checks if global charm_upgrade to 4
+# so will have a new response when hailed and assign Solo EXP Charm 5 task
+
+
+  if ($text=~/Hail/i && $charm_upgrade == 5 && !quest::istaskactive($Task{$s_task5}) && !quest::istaskcompleted($Task{$s_task5})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $charm5_template your $charm5_quest along 
+					   with your $charm5_token from my task reward as proof and 
+					   I will reward you with $charm6_Link");
+					   quest::assigntask($Task{$s_task5});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 5 && quest::istaskactive($Task{$s_task5}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 5 && quest::istaskcompleted($Task{$s_task5}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm5_template, $charm5_quest and $charm5_token
+					  Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+###################	
+#Solo Raid Charm 1#
+###################
+ if ($text=~/Hail/i && $charm_upgrade == 10 && !quest::istaskactive($Task{$r_task1}) && !quest::istaskcompleted($Task{$r_task1})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $charm6_template and
+					   your $raid_charm1_quest along with your $raid_charm1_token from my task
+					   reward as proof and I will reward you with $raid_charm2_Link");
+					   quest::assigntask($Task{$r_task1});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 10 && quest::istaskactive($Task{$r_task1}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 10 && quest::istaskcompleted($Task{$r_task1}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $charm6_template your $raid_charm1_quest and
+					  $raid_charm1_token. Remember to REMOVE any augments you have 
+					  in your current charm first before handing in"); 
+		}
+###################		
+#Solo Raid Charm 2#
+###################
+
+  if ($text=~/Hail/i && $charm_upgrade == 11 && !quest::istaskactive($Task{$r_task2}) && !quest::istaskcompleted($Task{$r_task2})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $raid_charm2_template your $raid_charm2_quest
+					   along with your $raid_charm2_token from my task reward as proof
+					   and I will reward you with $raid_charm3_Link");
+					   quest::assigntask($Task{$r_task2});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 11 && quest::istaskactive($Task{$r_task2}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 11 && quest::istaskcompleted($Task{$r_task2}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $raid_charm2_template your $raid_charm2_quest and
+					  $raid_charm2_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+###################		
+#Solo Raid Charm 3#
+###################
+
+  if ($text=~/Hail/i && $charm_upgrade == 12 && !quest::istaskactive($Task{$r_task3}) && !quest::istaskcompleted($Task{$r_task3})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $raid_charm3_template and your $raid_charm3_quest
+					   along with your $raid_charm3_token from my task reward as proof 
+					   and I will reward you with $raid_charm4_Link");
+					   quest::assigntask($Task{$r_task3});
+					   quest::doanim(42);
+		
+		}
+
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 12 && quest::istaskactive($Task{$r_task3}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 12 && quest::istaskcompleted($Task{$r_task3}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $raid_charm3_template your $raid_charm3_quest and
+					  $raid_charm3_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+###################		
+#Solo Raid Charm 4#
+###################
+
+  if ($text=~/Hail/i && $charm_upgrade == 13 && !quest::istaskactive($Task{$r_task4}) && !quest::istaskcompleted($Task{$r_task4})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $raid_charm4_template and your $raid_charm4_quest
+					   along with your $raid_charm4_token from my task reward as proof
+					   and I will reward you with $raid_charm5_Link");
+					   quest::assigntask($Task{$r_task4});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 13 && quest::istaskactive($Task{$r_task4}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 13 && quest::istaskcompleted($Task{$r_task4}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $raid_charm4_template your $raid_charm4_quest and
+					  $raid_charm4_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+###################		
+#Solo Raid Charm 5#
+###################
+ if ($text=~/Hail/i && $charm_upgrade == 14 && !quest::istaskactive($Task{$r_task5}) && !quest::istaskcompleted($Task{$r_task5})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $raid_charm5_template and	your $raid_charm5_quest
+					   along with your $raid_charm5_token from my task reward as proof
+					   and I will reward you with $raid_charm6_Link");
+					   quest::assigntask($Task{$r_task5});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 14 && quest::istaskactive($Task{$r_task5}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 14 && quest::istaskcompleted($Task{$r_task5}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $raid_charm5_template your $raid_charm5_quest and
+					  $raid_charm5_token. Remember to REMOVE any augments you have in
+					  your current charm first before handing in"); 
+		}
+####################
+#Guild Raid Charm 1#
+####################
+
+  if ($text=~/Hail/i && $charm_upgrade == 20 && !quest::istaskactive($Task{$g_task1}) && !quest::istaskcompleted($Task{$g_task1})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $raid_charm6_template your $guild_charm1_quest
+					   along with your $guild_charm1_token from my task reward as proof
+					   and I will reward you with $guild_charm2_Link");
+					   quest::assigntask($Task{$g_task1});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 20 && quest::istaskactive($Task{$g_task1}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 20 && quest::istaskcompleted($Task{$g_task1}))
+		{
+		$client->Message(315, 
+					  "Hand me your $raid_charm6_template your $guild_charm1_quest
+					   along with your $guild_charm1_token. Remember to REMOVE any
+					   augments you have in your current charm first before handing in"); 
+		}
+		
+####################
+#Guild Raid Charm 2#
+####################
+  if ($text=~/Hail/i && $charm_upgrade == 21 && !quest::istaskactive($Task{$g_task2}) && !quest::istaskcompleted($Task{$g_task2})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $guild_charm2_template your $guild_charm2_quest
+					   along with your $guild_charm2_token from my task reward as proof and
+					   I will reward you with $guild_charm3_Link");
+					   quest::assigntask($Task{$g_task2});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 21 && quest::istaskactive($Task{$g_task2}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 21 && quest::istaskcompleted($Task{$g_task2}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $guild_charm2_template your $guild_charm2_quest and
+					  $guild_charm2_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+####################
+#Guild Raid Charm 3#
+####################
+  if ($text=~/Hail/i && $charm_upgrade == 22 && !quest::istaskactive($Task{$g_task3}) && !quest::istaskcompleted($Task{$g_task3})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $guild_charm3_template your $guild_charm3_quest
+					   along with your $guild_charm3_token from my task reward as proof and
+					   I will reward you with $guild_charm4_Link");
+					   quest::assigntask($Task{$g_task3});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 22 && quest::istaskactive($Task{$g_task3}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 22 && quest::istaskcompleted($Task{$g_task3}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $guild_charm3_template your $guild_charm3_quest and
+					  $guild_charm3_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+####################
+#Guild Raid Charm 4#
+####################
+  if ($text=~/Hail/i && $charm_upgrade == 23 && !quest::istaskactive($Task{$g_task4}) && !quest::istaskcompleted($Task{$g_task4})) 
+			
+		{		  
+		$client->Message(315, 
+					   "TBring me your $guild_charm4_template your $guild_charm4_quest
+					   along with your $guild_charm4_token from my task reward as proof and
+					   I will reward you with $guild_charm5_Link");
+					   quest::assigntask($Task{$g_task4});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 23 && quest::istaskactive($Task{$g_task4}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 23 && quest::istaskcompleted($Task{$g_task4}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $guild_charm4_template your $guild_charm4_quest and
+					  $guild_charm4_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+		
+####################
+#Guild Raid Charm 5#
+####################
+  if ($text=~/Hail/i && $charm_upgrade == 24 && !quest::istaskactive($Task{$g_task5}) && !quest::istaskcompleted($Task{$g_task5})) 
+			
+		{		  
+		$client->Message(315, 
+					   "Bring me your $guild_charm5_template your $guild_charm5_quest
+					   along with your $guild_charm5_token from my task reward as proof and
+					   I will reward you with $guild_charm6_Link");
+					   quest::assigntask($Task{$g_task5});
+					   quest::doanim(42);
+		
+		}
+#checks if task is already asigned and says message 
+		elsif ($text=~/Hail/i && $charm_upgrade == 24 && quest::istaskactive($Task{$g_task5}))
+		{
+		$client->Message(315, 
+					  "You have not yet completed your quest for this charm yet
+					  Check your quest log"); 
+		}
+#checks if task is already completed and says hand in items message
+		elsif ($text=~/Hail/i && $charm_upgrade == 24 && quest::istaskcompleted($Task{$g_task5}))
+		{
+		$client->Message(315, 
+					  "Hand Me your $guild_charm5_template your $guild_charm5_quest and
+					  $guild_charm5_token. Remember to REMOVE any augments you have in your current
+					  charm first before handing in"); 
+		}
+
+####################
+#Guild Raid Charm 5#
+####################
+  if ($text=~/Hail/i && $charm_upgrade == 25) 
+			
+		{		  
+		$client->Message(315, 
+					   "Congratulations you have completed all of the charm quests.");
+						quest::doanim(42);
+		
+		}
+
+}
+ 
+sub EVENT_ITEM
+ {
+ 
+#Create the full name of each item for the Rewards array
+###############
+#Do NOT modify#
+###############
+my $charm2 = "charm2";
+my $charm3 = "charm3";
+my $charm4 = "charm4";
+my $charm5 = "charm5";
+my $charm6 = "charm6";
+my $raid_charm2 = "raid_charm2";
+my $raid_charm3 = "raid_charm3";
+my $raid_charm4 = "raid_charm4";
+my $raid_charm5 = "raid_charm5";
+my $raid_charm6 = "raid_charm6";
+my $guild_charm2 = "guild_charm2";
+my $guild_charm3 = "guild_charm3";
+my $guild_charm4 = "guild_charm4";
+my $guild_charm5 = "guild_charm5";
+my $guild_charm6 = "guild_charm6";
+########################
+#solo exp zones charm 1#
+########################
+#solo exp zones charm 1 Charm id, questid, tokenid.
+  if  (plugin::check_handin(\%itemcount, $solo_charm1=> 1, $solo_quest_charm1=> 1, $solo_token1=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 2, 5, "F");
+    quest::summonitem($Rewards{$charm2});  #Elixir of the treant (rank 2)
+    quest::ding ();
+     }
+#solo exp zones charm 2	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_charm2=> 1, $solo_quest_charm2=> 1, $solo_token2=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 3, 5, "F");
+    quest::summonitem($Rewards{$charm3}); #Elixir of the treant (rank 3)
+    quest::ding ();
+     }
+#solo exp zones charm 3	Charm id, questid, tokenid. 
+ if  (plugin::check_handin(\%itemcount, $solo_charm3=> 1, $solo_quest_charm3=> 1, $solo_token3=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 4, 5, "F");
+    quest::summonitem($Rewards{$charm4});  #Elixir of the treant (rank 4)
+    quest::ding ();
+     }
+#solo exp zones charm 4	Charm id, questid, tokenid. 
+ if  (plugin::check_handin(\%itemcount, $solo_charm4=> 1, $solo_quest_charm4=> 1, $solo_token4=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 5, 5, "F");
+    quest::summonitem($Rewards{$charm5});  #Elixir of the treant (rank 5)
+    quest::ding ();
+     }
+#solo exp zones charm 5	Charm id, questid, tokenid. 
+ if  (plugin::check_handin(\%itemcount, $solo_charm5=> 1, $solo_quest_charm5=> 1, $solo_token5=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 10, 5, "F");
+    quest::summonitem($Rewards{$charm6});  #Elixir of the treant (rank 5)
+    quest::ding ();
+     }
+	 
+###################
+#Solo Raid charm 1#
+###################
+#Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_charm6=> 1, $solo_raid_quest_charm1=> 1, $solo_raid_token1=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 11, 5, "F");
+    quest::summonitem($Rewards{$raid_charm2});  #Treant Bark Charm (Solo Raid Rank 1)
+    quest::ding ();
+     }
+#Solo Raid charm 2	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_raid_charm2=> 1, $solo_raid_quest_charm2=> 1, $solo_raid_token2=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 12, 5, "F");
+    quest::summonitem($Rewards{$raid_charm3});  #Treant Bark Charm (Solo Raid Rank 2)
+    quest::ding ();
+     }
+#Solo Raid charm 3	 Charm id, questid, tokenid. 
+ if  (plugin::check_handin(\%itemcount, $solo_raid_charm3=> 1, $solo_raid_quest_charm3=> 1, $solo_raid_token3=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 13, 5, "F");
+    quest::summonitem($Rewards{$raid_charm4});  #Treant Bark Charm (Solo Raid Rank 3)
+    quest::ding ();
+     }
+#Solo Raid charm 4	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_raid_charm4=> 1, $solo_raid_quest_charm4=> 1, $solo_raid_token4=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 14, 5, "F");
+    quest::summonitem($Rewards{$raid_charm5});  #Treant Bark Charm (Solo Raid Rank 4)
+    quest::ding ();
+     }
+#Solo Raid charm 5	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_raid_charm5=> 1, $solo_raid_quest_charm5=> 1, $solo_raid_token5=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 20, 5, "F");
+    quest::summonitem($Rewards{$raid_charm6});  #Treant Bark Charm (Solo Raid Rank 5)
+    quest::ding ();
+     }
+####################
+#Guild Raid Charm 1#
+####################
+#Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $solo_raid_charm6=> 1, $guild_quest_charm1=> 1, $guild_token_charm1=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 21, 5, "F");
+    quest::summonitem($Rewards{$guild_charm2});  #Treant Charm (Guild Rank 1)
+    quest::ding ();
+     }
+#Guild Raid Charm 2	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $guild_raid_charm2=> 1, $guild_quest_charm2=> 1, $guild_token_charm2=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 22, 5, "F");
+    quest::summonitem($Rewards{$guild_charm3});  #Treant Charm (Guild Rank 2)
+    quest::ding ();
+     }
+#Guild Raid Charm 3	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $guild_raid_charm3=> 1, $guild_quest_charm3=> 1, $guild_token_charm3=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 23, 5, "F");
+    quest::summonitem($Rewards{$guild_charm4});  #Treant Charm (Guild Rank 3)
+    quest::ding ();
+     }
+#Guild Raid Charm 4	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $guild_raid_charm4=> 1, $guild_quest_charm4=> 1, $guild_token_charm4=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::setglobal("charm_upgrade", 24, 5, "F");
+    quest::summonitem($Rewards{$guild_charm5});  #Treant Charm (Guild Rank 4)
+    quest::ding ();
+     }
+#Guild Raid Charm 5	 Charm id, questid, tokenid.
+ if  (plugin::check_handin(\%itemcount, $guild_raid_charm5=> 1, $guild_quest_charm5=> 1, $guild_token_charm5=> 1))
+     {
+    quest::emote("removes a item from his pocket.");
+    $client->Message(315,"This is yours. Care for it well!");
+	quest::shout2("Congratulations to $name on completing all of the charm upgrade quests");
+	quest::setglobal("charm_upgrade", 25, 5, "F");
+    quest::summonitem($Rewards{$guild_charm6});  #Treant Charm (Guild Rank 5)
+    quest::ding ();
+     }
+     else 
+	{
+	plugin::return_items(\%itemcount);	
+	}
+  }

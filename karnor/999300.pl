@@ -1,0 +1,44 @@
+sub EVENT_SAY
+{
+if($text=~/debug/i)
+{
+if($class == 1)#Enchanter
+{ 
+#Golden);Sapphire);Earring;)
+quest::summonitem(14690);
+quest::summonitem(14690);
+#Platinum);Fire);Wedding);ring);ringx2;) ;)
+quest::summonitem(14679);
+#Sapphire);Platinum);Necklace) 
+quest::summonitem(14691);
+#Savant's);Cap;)
+quest::summonitem(1302);
+#Platinum);Star);Ruby);veil) 
+quest::summonitem(14683);
+#Robe);Of);The);Oracle;)
+quest::summonitem(1354);
+#Gatorscale);Sleeves;)
+quest::summonitem(44357);
+#Ancient);Molten);Cloak;)
+quest::summonitem(44346);
+#Ancient);Braided);Cinch);Cord;)
+quest::summonitem(44335);
+#Embroidered);Black);Cape;)
+quest::summonitem(1401);
+#Ancient);Bracelet);Of);Woven);Grass;)
+quest::summonitem(44450);
+#Ancient);Bracelet);Of);Woven);Grass;)
+quest::summonitem(44450);
+#Drake-hide);Leggings;)
+quest::summonitem(2343);
+#Dusty);bloodstained);Gloves;)
+quest::summonitem(52577);
+#Wolf);Fur);Slippers;)
+quest::summonitem(1368);
+#Ancient);Stein);Of);Moggok) 
+quest::summonitem(44426);
+#Ancient);Glowing);Black);Stone) 
+quest::summonitem(44451);
+}
+}
+}

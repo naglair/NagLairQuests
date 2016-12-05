@@ -1,0 +1,238 @@
+sub EVENT_SAY {
+
+my $gi = quest::saylink ("give",1);
+my $t = $client->AccountID();
+my $globalname = "flagging";
+my $globalname2 = "$t";
+my $gc = quest::saylink ("kills",1);
+my $npc1 = quest::saylink ("King Tormax",1);
+my $npc2 = quest::saylink ("Avatar of War",1);
+my $npc3 = quest::saylink ("Tunare",1);
+my $npc4 = quest::saylink ("Vulak A`err",1);
+my $npc5 = quest::saylink ("Master of the Guard",1);
+my $npc6 = quest::saylink ("Dain Frostreaver",1);
+my $npc7 = quest::saylink ("Derakor the Vindicator",1);
+my $npc8 = quest::saylink ("Wuoshi",1);
+my $npc9 = quest::saylink ("Lodizal",1);
+my $npc10 = quest::saylink ("Final Arbiter",1);
+my $npc11 = quest::saylink ("Progenitor",1);
+my $globalname4 = "King Tormax";
+my $globalname5 = "Avatar of War";
+my $globalname6 = "Tunare";
+my $globalname7 = "Vulak A`err";
+my $globalname8 = "Master of the Guard";
+my $globalname9 = "Dain Frostreaver";
+my $globalname10 = "Derakor the Vindicator";
+my $globalname11 = "Wuoshi";
+my $globalname12 = "Lodizal";
+my $globalname13 = "Final Arbiter";
+my $globalname14 = "Progenitor";
+#my $uguild_id = $client->GuildID();
+
+
+if($text=~/testkills/i && $status >= 80)
+{
+plugin::Whisper("adding kills");
+quest::setglobal("Dain Frostreaver",1,5,'F');
+quest::setglobal("Master of the Guard",1,5,'F');
+quest::setglobal("Vulak A`err",1,5,'F');
+quest::setglobal("Lodizal",1,5,'F');
+quest::setglobal("Derakor the Vindicator",1,5,'F');
+quest::setglobal("Wuoshi",1,5,'F');
+quest::setglobal("Final Arbiter",1,5,'F');
+quest::setglobal("Progenitor",1,5,'F');
+quest::setglobal("Avatar of War",1,5,'F');
+quest::setglobal("Tunare",1,5,'F');
+quest::setglobal("King Tormax",1,5,'F');
+#quest::setglobal("Avatar of War",1,5,'F');
+}
+if($text=~/Remove/i)
+{
+quest::setglobal("flagging",1,5,'F');
+
+quest::delglobal($globalname4);
+quest::delglobal($globalname5);
+quest::delglobal($globalname6);
+quest::delglobal($globalname7);
+quest::delglobal($globalname8);
+quest::delglobal($globalname9);
+quest::delglobal($globalname10);
+quest::delglobal($globalname11);
+quest::delglobal($globalname12);
+quest::delglobal($globalname13);
+quest::delglobal($globalname14);
+}
+
+if($text =~/Kills/i)
+{
+$client->Message(335,"[$npc1]");
+$client->Message(335,"[$npc2]");
+$client->Message(335,"[$npc3]");
+$client->Message(335,"[$npc4]");
+$client->Message(335,"[$npc5]");
+$client->Message(335,"[$npc6]");
+$client->Message(335,"[$npc7]");
+$client->Message(335,"[$npc8]");
+$client->Message(335,"[$npc9]");
+$client->Message(335,"[$npc10]");
+$client->Message(335,"[$npc11]");
+}
+#("King Tormax");
+#("Avatar of War");
+#("Tunare");
+#("Vulak");
+#("Master of the Guard");
+#(" Dain Frostreaver");
+#("Derakor the Vindicator");
+#("Wuoshi");
+#("Lodizal");
+# ("Final Arbiter");
+# ("Progenitor");
+if($text=~/King Tormax/i)
+	{
+	if($qglobals{$globalname4} == 0) # This portion means it will tell you in red if the npc declared above has not been killed by your guild, or if it has
+		{
+			$client->Message(13,"$npc1 has not been slain!");
+		}
+			if($qglobals{$globalname4} == 1)
+				{
+					$client->Message(14,"$npc1 has been slain!");
+				}
+	}
+	if($text=~/Avatar of War/i)
+	{
+	if($qglobals{$globalname5} == 0)
+		{
+			$client->Message(13,"$npc2 has not been slain!");
+		}
+			if($qglobals{$globalname5} == 1)
+				{
+					$client->Message(14,"$npc2 has been slain!");
+				}
+	}
+	if($text=~/Tunare/i)
+	{
+	if($qglobals{$globalname6} == 0)
+		{
+			$client->Message(13,"$npc3 has not been slain!");
+		}
+			if($qglobals{$globalname6} == 1)
+				{
+					$client->Message(14,"$npc3 has been slain!");
+				}
+	}
+	if($text=~/Vulak A`err/i)
+	{
+	if($qglobals{$globalname7} == 0)
+		{
+			$client->Message(13,"$npc4 has not been slain!");
+		}
+			if($qglobals{$globalname7} == 1)
+				{
+					$client->Message(14,"$npc4 has been slain!");
+				}
+	}
+	if($text=~/Master of the Guard/i)
+	{
+	if($qglobals{$globalname8} == 0)
+		{
+			$client->Message(13,"$npc5 has not been slain!");
+		}
+			if($qglobals{$globalname8} == 1)
+				{
+					$client->Message(14,"$npc5 has been slain!");
+				}
+	}
+	if($text=~/Dain Frostreaver/i)
+	{
+	if($qglobals{$globalname9} == 0)
+		{
+			$client->Message(13,"$npc6 has not been slain!");
+		}
+			if($qglobals{$globalname9} == 1)
+				{
+					$client->Message(14,"$npc6 has been slain!");
+				}
+	}
+	if($text=~/Derakor the Vindicator/i)
+	{
+	if($qglobals{$globalname10} == 0)
+		{
+			$client->Message(13,"$npc7 has not been slain!");
+		}
+			if($qglobals{$globalname10} == 1)
+				{
+					$client->Message(14,"$npc7 has been slain!");
+				}
+	}
+	if($text=~/Wuoshi/i)
+	{
+	if($qglobals{$globalname11} == 0)
+		{
+			$client->Message(13,"$npc8 has not been slain!");
+		}
+			if($qglobals{$globalname11} == 1)
+				{
+					$client->Message(14,"$npc8 has been slain!");
+				}
+	}
+	if($text=~/Lodizal/i)
+	{
+	if($qglobals{$globalname12} == 0)
+		{
+			$client->Message(13,"$npc9 has not been slain!");
+		}
+			if($qglobals{$globalname12} == 1)
+				{
+					$client->Message(14,"$npc9 has been slain!");
+				}
+	}
+	if($text=~/Final Arbiter/i)
+	{
+	if($qglobals{$globalname13} == 0)
+		{
+			$client->Message(13,"$npc10 has not been slain!");
+		}
+			if($qglobals{$globalname13} == 1)
+				{
+					$client->Message(14,"$npc10 has been slain!");
+				}
+	}
+	if($text=~/Progenitor/i)
+	{
+	if($qglobals{$globalname14} == 0)
+		{
+			$client->Message(13,"$npc11 has not been slain!");
+		}
+			if($qglobals{$globalname14} == 1)
+				{
+					$client->Message(14,"$npc11 has been slain!");
+				}
+	}
+
+
+
+if($text=~/kills/i && ($qglobals{$globalname4} == 1) && ($qglobals{$globalname5} == 1) && ($qglobals{$globalname6} == 1) && ($qglobals{$globalname7} == 1) && ($qglobals{$globalname8} == 1) && ($qglobals{$globalname9} == 1) && ($qglobals{$globalname10} == 1) && ($qglobals{$globalname11} ==1) && ($qglobals{$globalname12} == 1) && ($qglobals{$globalname13} == 1) && ($qglobals{$globalname14} == 1) && ($qglobals{"flagging"} < 3))
+{
+$client->Message(15,"You are now flagged to enter Luclin zones");
+ quest::setglobal("flagging", 3, 5, "F");
+ quest::summonitem(1434);
+}
+else{
+if($text=~/kills/i)
+{
+plugin::Whisper("Please check your kill log, or you're already flagged for Kunark");
+}
+}
+
+
+
+	if ($text =~/hail/i) {
+		plugin::Whisper("Greetin`s $name, Heard ya wanna enter the lands of Luclin? Would you like to check your [$gc] progression. ");
+		}
+	
+	
+	}	
+	
+	
+ 	

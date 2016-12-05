@@ -1,0 +1,36 @@
+#bb
+insert into loottable_entries select distinct loottable_id, 100001, 1, 4 from npc_types where loottable_id >0 and id between 17000 and 17052;
+
+#gukbottom
+insert into loottable_entries select distinct loottable_id, 100367, 1, 5 from npc_types where loottable_id >0 and id between 60001 and 60176;
+
+#karnros
+insert into loottable_entries select distinct loottable_id, 100367, 1, 5 from npc_types where loottable_id >0 and id between 60001 and 60176;
+
+UPDATE `npc_types` SET `maxdmg`=maxdmg*.7, `mindmg`=mindmg*.3,`MR`=MR*.5,`CR`=CR*.5,`FR`=FR*.5,`PR`=PR*.5,`DR`=DR*.5, `AC`=AC*.6, `STR`=STR*.5, `AGI`=AGI*.5 WHERE `id`>1000;
+
+UPDATE `items` SET `races`=65535 WHERE name like 'Crude Defiant%';
+
+
+
+#karnor test 
+insert into lootdrop values (100368, 'Kurn_quest_armor');
+insert into lootdrop_entries select 100368, id, 1, 1, 2 from items where name like 'Long Lost%'; 
+insert into loottable_entries select distinct loottable_id, 100368, 1, 5 from npc_types where loottable_id >0 and id between 102000 and 102130;
+
+insert into lootdrop values (100369, 'Kurn_quest_armor');
+insert into lootdrop_entries select 100369, id, 1, 1, 100 from items where name like 'Videogame%'; 
+insert into loottable_entries select distinct loottable_id, 100369, 1, 5 from npc_types where loottable_id >0 and id between 102000 and 102130;
+
+
+
+#adds the loottable id -> 100001 to the npcs in blackburrow
+insert into loottable_entries select distinct loottable_id, 100001, 1, 8 from npc_types where loottable_id >0 and id between 17000 and 17052;
+
+#adds to the lootdrop selection 100368 , with a 2% chance to drop items which name is "like long lost X"
+insert into lootdrop_entries select 100368, id, 1, 1, 2 from items where name like 'Long Lost%'; 
+
+
+
+
+insert into lootdrop_entries select 100001, id, 1, 1, 8 from items where name like 'Gnoll Hide Battle%'; 

@@ -1,0 +1,10 @@
+my $ItemID = 1001; # Set item id to verify here
+my $VerifiedID = $client->GetItemStat($ItemID, "id");
+if (!$VerifiedID)
+{
+plugin::Whisper("This item does not yet exist.");
+}
+else
+{
+plugin::Whisper("This item exists.");
+}

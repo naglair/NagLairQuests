@@ -1,0 +1,174 @@
+sub EVENT_SAY {
+
+my $gi = quest::saylink ("give",1);
+my $t = $client->AccountID();
+my $spirits = quest::saylink ("spirits", 1);
+my $globalname = "flagging";
+my $globalname2 = "$t";
+my $gc = quest::saylink ("kills",1);
+my $npc1 = quest::saylink ("Lord Nagafen",1);
+my $npc2 = quest::saylink ("Lady Vox",1);
+my $npc3 = quest::saylink ("Phinigel Autropos",1);
+my $npc4 = quest::saylink ("Cazic Thule",1);
+my $npc5 = quest::saylink ("Innoruuk",1);
+my $npc6 = quest::saylink ("Eye of Veeshan",1);
+my $globalname4 = "Lord Nagafen";
+my $globalname5 = "Lady Vox";
+my $globalname6 = "Phinigel Autropos";
+my $globalname7 = "Cazic Thule";
+my $globalname8 = "Innoruuk";
+my $globalname9 = "Eye of Veeshan";
+#my $uguild_id = $client->GuildID();
+
+
+
+
+if($text=~/testkillz/i &&  $status >= 80)
+{
+quest::setglobal("Lord Nagafen",1,5,'F');
+quest::setglobal("Lady Vox",1,5,'F');
+quest::setglobal("Phinigel Autropos",1,5,'F');
+quest::setglobal("Cazic Thule",1,5,'F');
+quest::setglobal("Innoruuk",1,5,'F');
+quest::setglobal("Eye of Veeshan",1,5,'F');
+#quest::setglobal("Druushk",1,5,'F');
+}
+if($text=~/Remove/i)
+{
+quest::say($globalname4);
+quest::delglobal("Lord Nagafen");
+quest::delglobal("flagging");
+}
+
+if($text =~/Kills/i)
+{
+$client->Message(335,"[$npc1]");
+$client->Message(335,"[$npc2]");
+$client->Message(335,"[$npc3]");
+$client->Message(335,"[$npc4]");
+$client->Message(335,"[$npc5]");
+$client->Message(335,"[$npc6]");
+}
+#("Phara Dar");
+#("Druushk");
+#("Nexona");
+#("Silverwing");
+#("Hoshkar");
+#("Xygoz");
+#("Gorenaire");
+#("Trakanon");
+#("Severilous");
+# ("Faydedar");
+# ("Talendor");
+if($text=~/Lord Nagafen/i)
+	{
+	if($qglobals{$globalname4} == 0) # This portion means it will tell you in red if the npc declared above has not been killed by your guild, or if it has
+		{
+			$client->Message(13,"$npc1 has not been slain!");
+		}
+			if($qglobals{$globalname4} == 1)
+				{
+					$client->Message(14,"$npc1 has been slain!");
+				}
+	}
+	if($text=~/Lady Vox/i)
+	{
+	if($qglobals{$globalname5} == 0)
+		{
+			$client->Message(13,"$npc2 has not been slain!");
+		}
+			if($qglobals{$globalname5} == 1)
+				{
+					$client->Message(14,"$npc2 has been slain!");
+				}
+	}
+	if($text=~/Phinigel Autropos/i)
+	{
+	if($qglobals{$globalname6} == 0)
+		{
+			$client->Message(13,"$npc3 has not been slain!");
+		}
+			if($qglobals{$globalname6} == 1)
+				{
+					$client->Message(14,"$npc3 has been slain!");
+				}
+	}
+	if($text=~/Cazic Thule/i)
+	{
+	if($qglobals{$globalname7} == 0)
+		{
+			$client->Message(13,"$npc4 has not been slain!");
+		}
+			if($qglobals{$globalname7} == 1)
+				{
+					$client->Message(14,"$npc4 has been slain!");
+				}
+	}
+	if($text=~/Innoruuk/i)
+	{
+	if($qglobals{$globalname8} == 0)
+		{
+			$client->Message(13,"$npc5 has not been slain!");
+		}
+			if($qglobals{$globalname8} == 1)
+				{
+					$client->Message(14,"$npc5 has been slain!");
+				}
+	}
+	if($text=~/Eye of Veeshan/i)
+	{
+	if($qglobals{$globalname9} == 0)
+		{
+			$client->Message(13,"$npc6 has not been slain!");
+		}
+			if($qglobals{$globalname9} == 1)
+				{
+					$client->Message(14,"$npc6 has been slain!");
+				}
+	}
+	
+	
+if($text=~/kills/i && ($qglobals{$globalname4} == 1) && ($qglobals{$globalname5} == 1) && ($qglobals{$globalname6} == 1) && ($qglobals{$globalname7} == 1) && ($qglobals{$globalname8} == 1) && ($qglobals{$globalname9} == 1) && ($qglobals{flagging} < 1))
+{
+$client->Message(15,"You are now flagged to enter Kunark zones");
+ quest::setglobal("flagging", 1, 5, "F");
+ quest::summonitem(32428);
+}
+else{
+if($text=~/kills/i)
+{
+plugin::Whisper("Please check your kill log, or you're already flagged for Kunark");
+}
+}
+
+
+
+
+ 
+
+	if ($text =~/hail/i) {
+		plugin::Whisper("Greetin`s $name, Heard ya wanna enter the lands of Kunark? Would you like to check your [$gc] progression. ");
+		$client->Message(13,"$ent");
+		}
+
+	
+	
+
+	
+	
+ 	
+if(plugin::check_handin(\%itemcount,32428 => 1)) {
+
+if ($qglobals{flagging} > 1 ) {
+	$client->Message(15,"You are already flagged to enter Kunark zones");
+	quest::summonitem(32428);
+							}
+	if ($qglobals{flagging} <= 1 ) {
+	$client->Message(15,"You are now flagged to enter Kunark zones");
+ quest::setglobal("flagging", 1, 5, "F");
+ quest::summonitem(32428);
+								} 
+ 
+
+}
+}

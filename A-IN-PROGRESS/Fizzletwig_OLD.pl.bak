@@ -1,0 +1,136 @@
+sub EVENT_SAY {
+my $test = quest::saylink ("test",1);
+
+
+
+if ($text =~/Hail/i)
+{ 
+#plugin::Whisper("Hey, $name. I think I figured out how to enslave creatures to do my bidding, just like an enchanter. I need some help, would you be willing to [$test] it for me...? "); 
+plugin::Whisper("Hey, $name. can you come back later? I'm sort of in the middle of something. "); 
+
+}
+
+
+if(($text=~/test/i) && ($ulevel<8))
+{
+plugin::Whisper("I'm sorry, you are much too inexperienced to command such a servant. Come back when you are more experienced!");
+}
+
+if(($text=~/test/i) && ($ulevel>=8) && ($ulevel<16))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one piece of amber.");
+}
+
+if(($text=~/test/i) && ($ulevel>=16) && ($ulevel<23))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one peridot.");
+}
+if(($text=~/test/i) && ($ulevel>=23) && ($ulevel<30))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one fire opal.");
+}
+if(($text=~/test/i) && ($ulevel>=30) && ($ulevel<37))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one fire emerald.");
+}
+if(($text=~/test/i) && ($ulevel>=37) && ($ulevel<44))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one sapphire.");
+}
+if(($text=~/test/i) && ($ulevel>=44) && ($ulevel<51))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one ruby.");
+}
+if(($text=~/test/i) && ($ulevel>51))
+{
+plugin::Whisper("I can attempt to create a servant for you, but it will require one diamond...");
+if($ulevel>=55){plugin::Whisper("Pssttt. Rumor has it that there may be a way to use a BLUE Diamond...");
+}
+
+}
+
+ 
+
+}
+
+sub EVENT_ITEM
+{
+#Hand in event AMBER & level check
+if  (($ulevel>78)  && (plugin::check_handin(\%itemcount, 10022 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(315,316,317)); #r2
+}
+#Hand in event PERIDOT & level check
+
+if  (($ulevel>16) && (plugin::check_handin(\%itemcount, 10028 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(397,398,399,400)); #r3
+}
+#Hand in event fire opal & level check
+
+if  (($ulevel>23) && (plugin::check_handin(\%itemcount, 10031 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(396,396)); #r5
+}
+#Hand in event fire emerald & level check
+
+if  (($ulevel>30) && (plugin::check_handin(\%itemcount, 10033 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(570,571,572)); #r7
+}
+#Hand in event sapphire & level check
+
+if  (($ulevel>37) &&(plugin::check_handin(\%itemcount, 10034 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(573,574,575,576)); #r8
+}
+#Hand in event ruby & level check
+
+if  ( && ($ulevel>44) && (plugin::check_handin(\%itemcount, 10035 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(8184,8185)); #r9
+}
+#Hand in event diamond & level check
+
+if (($ulevel>50) && (plugin::check_handin(\%itemcount, 10037 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem, Come back when you are a more experienced for a more powerful companion!");
+quest::selfcast(quest::ChooseRandom(628,629,630,631)); #r11
+}
+#Hand in event blue diamond & level check
+
+if  (($ulevel>54) && (plugin::check_handin(\%itemcount, 22503 => 1)))
+{
+plugin::Whisper("Ah, $name, this is perfect! thanks.. now let me get to work");
+quest::emote("cups the gem in his hands as he begins to chant...");
+plugin::Whisper("There you go, $name. I think that's what you wanted, right? If not, You can dismiss that one and try again with another gem. You have reached the most powerful companion I can summon.");
+quest::selfcast(quest::ChooseRandom(632,633,634,635)); #r12
+}
+
+
+#plugin::Whisper("What Am I suppsoed to do with this...thing? This isn't what I need at all. Take it back!");
+plugin::return_items(\%itemcount);
+
+
+
+}

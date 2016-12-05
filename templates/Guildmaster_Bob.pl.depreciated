@@ -1,0 +1,92 @@
+#############
+#Written By : Cubber
+#Quest Name: Guild Invite Bot
+#Based on Status : edited by Sab/Adak 10-28-11
+#################
+sub EVENT_SAY
+{
+my $guild = quest::saylink ("guild",1);
+my $options = quest::saylink ("options",1);
+my $classic = quest::saylink ("classic",1);
+my $kunark = quest::saylink ("kunark",1);
+my $velious = quest::saylink ("velious",1);
+my $jc = quest::saylink ("join classic",1);
+my $jk = quest::saylink ("join kunark",1);
+my $jv = quest::saylink ("join velious",1);
+my $remove = quest::saylink ("remove",1);
+
+#set up saylinks
+# my $gd = quest::saylink ("Great Divide",1);
+#set plugin::Whisper("WHATEVER"); to $client->Message(315,"WHATEVER"); to cut down on spam.
+	if($text=~/Hail/i)
+		{
+			$client->Message(315,"Hello there $name,  would you like to join a [$guild]? I can offer you different [$options] based on how advanced your progression. I can also [$remove] your guild affiliation, if you require. ");
+      		}
+
+if ($text =~/options/i)
+{
+$client->Message(315,"I can let you join [$classic], [$kunark], or [$velious] guilds based on your server progression. I can also [$remove] your guild affiliation, if you require. ");
+}
+		 if ($text =~/classic/i )
+ {
+		
+			$client->Message(315,"Ahh yes the Classic Guild!  It is the greatest guild in all the land... 
+Many of the inexperienced adventures join it! You will be able to find a friend if you are just starting out,
+ and keep in touch with each other easily. Would you like to  [$jc] guild? or hear more [$options]?");
+
+ } 
+		
+				 if ($text =~/kunark/i && $status >0)
+ {
+		
+			$client->Message(315,"Ahh yes the Kunark Guild!  It is the greatest guild in all the land... 
+Hardy adventurers join this guild! Once you outgrow
+ it also allows members to keep in touch with each other easily.Would you like to  [$jk] guild? or hear more [$options]?");
+
+			} 
+ 				 if ($text =~/guild/i && $status >1)
+ {
+		
+			$client->Message(315,"Ahh yes the Velious Guild!  It is the greatest guild in all the land... 
+All of the most revered adventures in Norrath join it! Besides the many benefits that being in a guild has to offer,
+ it also allows members to keep in touch with each other easily.Would you like to  [$jv] guild? or hear more [$options]?");
+
+			 } 
+ 
+ 
+ if ($text =~/join classic/i)
+		{
+			quest::setguild(10,0);  #Fix Guild ID 1
+			$client->Message(315,"Welcome to the classic guild $name!");
+			quest::shout2 ("$name has joined the guild 'Classic' ");
+		}
+
+if ($text=~/join kunark/i && $status >0)
+		{
+			quest::setguild(11,0); #Fix Guild ID 2 
+			$client->Message(315,"Welcome to the kunark guild $name!");
+			quest::shout2 ("$name has joined the guild 'Kunark'");
+		}
+
+if ($text=~/join velious/i && $status >1)
+		{
+			quest::setguild(12,0); #Fix Guild ID 3
+			$client->Message(315,"Welcome to the velious guild $name!");
+			quest::shout2 ("$name has joined the guild 'Velious'");
+		}
+		if ($text=~/join kunark/i && $status <1)
+		{
+			$client->Message(315,"You are not experienced enuogh to join this guild. Come back and see me after you've set foot in kunark.");
+		}
+				if ($text=~/join velious/i && $status <2)
+		{
+			$client->Message(315,"You are not experienced enuogh to join this guild. Come back and see me after you've set foot in Velious.");
+		}
+						
+						if ($text=~/remove/i)
+		{
+			$client->Message(315,"I will remove your guild affiliation");
+			quest::setguild(0,0); #does this work ?
+		}
+		
+}

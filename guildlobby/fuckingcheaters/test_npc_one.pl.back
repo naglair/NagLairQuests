@@ -1,0 +1,85 @@
+
+sub EVENT_SAY {
+my $go = quest::saylink ("go",1);
+my $me = quest::saylink ("me", 1);
+my $realm = quest::saylink ("realm", 1);
+my $dreams = quest::saylink ("dreams", 1);
+my $ready = quest::saylink ("ready", 1);
+my $trouble = quest::saylink ("trouble", 1);
+my $awaitedusthere = quest::saylink ("awaited us there", 1);
+###########################
+#  Ring 1 Quest           #
+###########################
+
+if($text=~/hail/i)
+	{
+	if (defined($qglobals{flagging})) 			{
+	#exists
+	if (($qglobals{flagging})==1) {
+      #quest::setglobal("flagging",1,7,"F");
+	  	plugin::Whisper("test flagging veriable known  [reset] ?   $qglobals{flagging} ?  [test] the zone");
+							}
+		
+		if (($qglobals{flagging})==0) {
+  
+	  	plugin::Whisper(" flagging > 1 ? $qglobals{flagging} ");
+								   }
+											    }
+    else {
+	#does not exist
+      quest::setglobal("flagging",0,7,"F");
+	  	plugin::Whisper("No known flagging ");
+		}
+	}
+
+
+
+
+		
+
+  
+  if ($text=~/reset/i) {
+    	quest::setglobal("flagging",0,7,"F");
+		plugin::Whisper("reset flag  flagging :: $qglobals{flagging}");
+  }
+  if ($text=~/setit/i) {
+    	 quest::setglobal("flagging",1,7,"F");
+	  	plugin::Whisper("set flag  flagging :: $qglobals{flagging}");
+  }
+
+		 
+	 
+    if ($text=~/test/i) {
+	if(($qglobals{flagging})>0) 
+		{
+	plugin::Whisper("flagged to enter");
+	 #quest::movepc(241,251,33,5);
+		}
+		if(($qglobals{flagging})<1) 
+		{
+	 plugin::Whisper("not flagged to enter.");
+		}
+		
+   
+  }
+
+}
+
+
+sub EVENT_ITEM {
+
+#malachite
+if(plugin::check_handin(\%itemcount,1389 => 1)) {
+#quest::setglobal("flagging",1,5,"F");
+plugin::Whisper("Release....Cannot come yet. Much left to do, but take this! ");
+my $a = quest::ChooseRandom(31851,31852,31853,31854,31855,31856,31857,31858,31859,31860,31861,31862,31863);
+quest::summonitem($a); 
+
+}
+else {
+plugin::return_items(\%itemcount);
+plugin::Whisper("My incorporeal form does not understand...");
+}
+
+
+}

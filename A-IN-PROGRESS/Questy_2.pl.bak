@@ -1,0 +1,160 @@
+sub EVENT_SAY {
+
+my $that = quest::saylink ("that",1);
+my $weapon = quest::saylink ("weapon", 1);
+my $down = quest::saylink ("down", 1);
+my $onehandblunt = quest::saylink ("1Hand Blunt", 1);
+my $twohandblunt = quest::saylink ("2Hand Blunt", 1);
+my $onehandslash = quest::saylink ("1Hand Slash", 1);
+my $twohandslash = quest::saylink ("2Hand Slash", 1);
+my $pierce = quest::saylink ("Pierce", 1);
+my $twohands = quest::saylink ("Two Hands", 1);
+my $fists = quest::saylink("fists",1);
+my $caster = quest::saylink("caster",1);
+my $enemies = quest::saylink("enemies",1);
+
+
+
+if ($text =~/Hail/i)
+{ 
+plugin::Whisper("Greetings, $name are you , by chance, looking for a special weapon? I have plenty... but you have to help me out first. Can you do [$that] for me?"); 
+}
+
+
+
+if ($text=~/that/i) 
+{
+plugin::Whisper("Im a bit odd, you see? NO DONT LOOK AT ME.... but you were helping me. HELP ME! I need thing, lots of things... and i'll make you a weapon. Would you like that? A weapon for .. you.. to use, to kill things. Do you want a [$weapon] or do you want to help me by killing my [$enemies]!?");
+}
+if ($text=~/weapon/i)
+ {
+#plugin::Whisper("WEAPONS!!!!!!!  $name $name $name $name $name $name $name $name ... WEAPONS!!!! shhh.. keep your voice [$down]!");
+plugin::Whisper("WEAPONS!!!!!!!  $name $name $name $name $name $name $name $name ... WEAPONS!!!! shhh.. keep your voice [$down]!");
+}
+if ($text=~/enemies/i) {
+plugin::Whisper("You what I hate? Gnolls. I reaaaaly hate them. Im going to make a life-sized statues of bristlebane using gnoll-fangs. Bring me 4 back. Not 3. NOT 2. AND NOT JUST 1! How can I make a statue with ONE FANG??? You'll find the gnolls in blackburrow. Go, scamper along.");
+}
+if ($text=~/down/i) 
+{
+plugin::Whisper("Down? ... From where? You make no sense, well do you want a weapon or not!? I have a [$onehandblunt], [$twohandblunt], [$onehandslash] or a [$twohandslash]. I guess I could also give you something to [$pierce] with,too. I've got a large version of that poker which requires [$twohands] - it's much to heavy for me... Or if you want to use your [$fists] like a REAL GNOME I could make you some brass knuckles. Or, if fighting isn't your thing, I could give you this [$caster] item I traded for the other day.");
+}
+
+if ($text=~/1Hand Blunt/i) 
+{
+plugin::Whisper("For this blunt weapon I will need a custom low level work order token, which is sold in this hut in Surefall, a cutthroat insignia ring and a flask of honey mead!");
+}
+
+if ($text=~/2Hand Blunt/i) 
+{
+plugin::Whisper("For this big blunt weapon I will need a custom low level work order token, which is sold in this hut in Surefall, a compass, and a zombie skin from the desert! ");
+}
+
+if ($text=~/1Hand Slash/i) 
+{
+plugin::Whisper("For this slashing weapon I will need a custom low level work order token, which is sold in this hut in Surefall, A spiked collar from blackburrow and an iron ration!");
+}
+
+if ($text=~/2Hand Slash/i) 
+{
+plugin::Whisper("For this big slashing weapon I will need a custom low level work order token, which is sold in this hut in Surefall, a sharpening stone, and a small mammoth tusk!");
+}
+
+if ($text=~/Pierce/i) 
+{
+plugin::Whisper("For this stabbing weapon I will need a custom low level work order token, which is sold in this hut in Surefall, a giant snake fang and some gypsy wine.");
+}
+
+if ($text=~/Two Hands/i) 
+{
+plugin::Whisper("For this large poking weapon I will need a custom low level work order token, which is sold in this hut in Surefall, a fishin' pole and a fresh fish!");
+}
+
+if ($text=~/fists/i)
+ {
+plugin::Whisper("For these special knuckles of fury I will need a custom low level work order token, which is sold in this hut in Surefall, a flask of gator gulp ale and some crushbone battle beads.");
+}
+
+if ($text=~/caster/i) 
+{
+plugin::Whisper("For this ... this.. caster thing... I will need a custom low level work order token, which is sold in this hut in Surefall, a polished bone bracer off an evil eye, and some water of povar, which is sold at some caster guild halls!");
+}
+
+}
+
+sub EVENT_ITEM {
+#1hb
+if(plugin::check_handin(\%itemcount,1903 => 1,1264 => 1, 13033 => 1)) {
+plugin::Whisper("More junk for me! Woohoo! Take this smacky stick thing as a reward... ");
+quest::summonitem("1096");
+quest::givecash("0","0","0","10");
+quest::exp(10000);
+}
+elsif
+#2hb
+(plugin::check_handin(\%itemcount,1264 => 1,12000 => 1, 13074 => 1)) {
+plugin::Whisper("Woah! Thanks! Here. Take this stick! Quick!");
+quest::summonitem("1079");
+quest::exp(10000);
+}
+elsif
+#1hs
+(plugin::check_handin(\%itemcount,2304 => 1,1264 => 1, 13005 => 1)) {
+plugin::Whisper("I dont need this slashing thing anyways....");
+quest::summonitem("1118");
+quest::exp(10000);
+}
+elsif
+#p
+(plugin::check_handin(\%itemcount,1264 => 1,7005 => 1, 13052 => 1)) {
+plugin::Whisper("Go forth, an stabbeth... ");
+quest::summonitem("1119");
+quest::exp(10000);
+}
+elsif
+#h2h
+(plugin::check_handin(\%itemcount,27537 => 1,12356 => 1, 1264 => 1)) {
+quest::summonitem("1261");
+plugin::Whisper("PUNCH SOMETHING! do it, do it, do it!");
+
+quest::exp(10000);
+}
+elsif
+#2hs
+(plugin::check_handin(\%itemcount,1264 => 1,12056 => 1, 10125 => 1)) {
+plugin::Whisper("Enjoy this cutting thing... too big to slice my bread with anyhow.");
+quest::summonitem("1266");
+quest::exp(10000);
+}
+elsif
+#2hp
+(plugin::check_handin(\%itemcount,13100 => 1,1264 => 1, 13019 => 1)) {
+plugin::Whisper("Woah! Compensating for something?");
+quest::summonitem("1267");
+quest::exp(10000);
+}
+elsif
+#caster
+(plugin::check_handin(\%itemcount,1264 => 1,10314 => 1, 16014 => 1)) {
+plugin::Whisper("Go ... do whatever it is you do.. you magical peson, you.");
+quest::summonitem("1270");
+quest::exp(10000);
+}
+elsif
+(plugin::check_handin(\%itemcount,10037 => 4)) {
+plugin::Whisper("Woah! Jackpot, baby! How did you know about this?");
+quest::summonitem(quest::ChooseRandom("59509","59510","59516","59517","21817","31492"));
+quest::exp(50000);
+}
+elsif
+(plugin::check_handin(\%itemcount,13915 => 4)) {
+plugin::Whisper("Thanks. Now ill get to work on that statue...");
+quest::exp(2550);
+quest::givecash("0","0","0","3"); 
+quest::faction(500,10);   # + Crazy_Questgivers
+}
+
+else {
+plugin::return_items(\%itemcount);
+plugin::Whisper("I think you misread my instructions. you did want a reward , right? THEN FOLLOW MY DIRECTIONS!");
+}
+}
