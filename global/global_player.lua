@@ -32,7 +32,7 @@ function event_connect(e)
 	local difftime = os.difftime(currtime, qglobals['last_token_rewarded']);
 	local count = string.gsub(difftime / 604800, "%.%d+", "", 1); -- 1 week
 
-		if (tonumber(count) > 0) then
+		if (qglobals['last_token_rewarded'] ~= nil and tonumber(count) > 0) then
 			eq.set_global("last_token_rewarded", tostring(currtime), 5 ,"F")
 			e.self:SummonItem(40903, tonumber(count));
 			
