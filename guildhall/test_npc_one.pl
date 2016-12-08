@@ -5,74 +5,10 @@ sub EVENT_SAY{
 
 
 
-if($text=~/hail/i)
-	{
-	if (defined($qglobals{flagging})) 			{
-	#exists
-	if (($qglobals{flagging})==0) {
-		#flagged for old world
-	  	#$client->Message(315,"Well hello there $name. Would you like to go to [$qeynos], [$east_freeport], [$west_freeport], [$halas], [$erudin],[$surefall], [$rivervale], [$akanon], [$felwithe],[$kaladim],[$kelethin],[$oggok], [$grobb], [$neriak], [$lavastorm], [$nektulos], [$lobby] or  [$abysmal]  -- I can also [$bindme] ");
-
-								   }
-	if (($qglobals{flagging}) == 1) {
-	#flagged for Kunark
-      #quest::setglobal("flagging",1,7,"F");
-	  	#$client->Message(315,"Well hello there $name. Would you like to go to [$qeynos], [$east_freeport], [$west_freeport], [$halas], [$erudin],[$surefall], [$rivervale], [$akanon], [$felwithe],[$kaladim],[$kelethin],[$oggok], [$grobb], [$neriak], [$lavastorm], [$nektulos], [$lobby], [$abysmal] ,[$fob], [$fv], [$ot], [$ej], [$sky] or[$dl]? -- I can also [$bindme]");
- 
-							}
-	if (($qglobals{flagging}) == 2) {
-	#flagged for Velious
-      #quest::setglobal("flagging",1,7,"F");
-	  	# $client->Message(315,"Well hello there $name. Would you like to go to [$qeynos], [$east_freeport], [$west_freeport], [$halas], [$erudin],[$surefall], [$rivervale], [$akanon], [$felwithe],[$kaladim],[$kelethin],[$oggok], [$grobb], [$neriak], [$lavastorm], [$nektulos], [$lobby], [$abysmal] ,[$fob], [$fv], [$ot], [$ej], [$sky],[$dl], [$gd], [$ico], [$ww], [$wl] -- I can also [$bindme]");
-
-							}
-	if (($qglobals{flagging}) == 3) {
-	#flagged for Luclin
-      #quest::setglobal("flagging",1,7,"F");
-	  	 #$client->Message(315,"Well hello there $name. Would you like to go to [$qeynos], [$east_freeport], [$west_freeport], [$halas], [$erudin],[$surefall], [$rivervale], [$akanon], [$felwithe],[$kaladim],[$kelethin],[$oggok], [$grobb], [$neriak], [$lavastorm], [$nektulos]... [$lobby], [$abysmal] ... [$fob], [$fv], [$ot], [$ej], [$sky],[$dl]... [$gd], [$ico], [$ww], [$wl] ... [$scarlet], [$shadowhaven], [$hollowshade], [$dawnshroud]-- I can also [$bindme]");
-
-							}
-							
-		
-											    }
-    else {
-	#no variable for character
-	#By default flagged for old world
-      #quest::setglobal("flagging",0,5,"F");
-	  	#plugin::Whisper("No known flagging ");
-		#$client->Message(315,"Well hello there $name. Would you like to go to [$qeynos], [$east_freeport], [$west_freeport], [$halas], [$erudin],[$surefall], [$rivervale], [$akanon], [$felwithe],[$kaladim],[$kelethin],[$oggok], [$grobb], [$neriak], [$lavastorm], [$nektulos], [$lobby] or  [$abysmal]  -- I can also [$bindme] ");
-
-		}
-	}
+if($text=~/hail/i)	{
 
 
 
-  if ($text=~/check/i) {
-		plugin::Whisper("Checking:: Flag @ $qglobals{flagging}");
-  }
-		
-
-  
-  if ($text=~/reset/i) {
-    	quest::setglobal("flagging",0,5,"F");
-		plugin::Whisper("flag  set 0  ");
-  }
-  if ($text=~/xet1/i) {
-    	 quest::setglobal("flagging",1,5,"F");
-	  	plugin::Whisper("flag  set 1  ");
-  }
-  if ($text=~/xet2/i) {
-    	 quest::setglobal("flagging",2,5,"F");
-	  	plugin::Whisper("flag  set 2  ");
-  }
-  if ($text=~/xet3/i) {
-    	 quest::setglobal("flagging",3,5,"F");
-	  plugin::Whisper("flag  set 3  ");
-  }
-
-
-
- 
    if (($text=~/bind my soul/i) || ($text=~/bind your soul/i))
       {
         $client->Message(215,"Binding your soul. You will return here when you die.");
