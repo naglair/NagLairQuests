@@ -33,7 +33,8 @@ plugin::Whisper ("[$grobb]");
 plugin::Whisper ("[$halas]");
 plugin::Whisper ("[$kaladim]");
 plugin::Whisper ("[$kelethin]");
-plugin::Whisper ("[$neriak]");
+#Neriak zone is currently broken on the server, dont let people go there.
+#plugin::Whisper ("[$neriak]");
 plugin::Whisper ("[$oggok]");
 plugin::Whisper ("[$paineel]");
 plugin::Whisper ("[$qeynos]");
