@@ -15,6 +15,6 @@ my $random_result = int(rand(100));
 }
 
 
-}
+
 #END of FILE Zone:befallen  ID:4953 -- the_thaumaturgist 
 
