@@ -104,7 +104,7 @@ if ($text =~/kelethin/i)
 {
 plugin::Whisper ("$name, stand close to me while I cast..");
 quest::emote ("moves his hands as if chanting...");
-quest::movepc(54,219.66,1047.66,4.67);
+quest::movepc(54,232.02,1172.38,21.80);
 }
 
 if ($text =~/Neriak Foreign Quarter/i)
