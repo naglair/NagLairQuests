@@ -1,3 +1,12 @@
+-- Give any NPC in game a chance to drop a Nagafen's token
+function event_death(e)
+	if (e.other:GetLevel() - e.self:GetLevel() <= 20 or e.self:GetLevel() >= e.other:GetLevel()) then
+		if (math.random(100) <= 2) then
+			e.self:AddItem(40903, 1);
+			e.other:Message(4, "Oh my! A powerfull token dropped");
+		end
+	end
+end	
 
 -- Adjust lvl 61+ pets
 function event_spawn(e)
