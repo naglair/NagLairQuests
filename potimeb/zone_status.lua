@@ -36,9 +36,12 @@ function event_spawn(e)
 		eq.spawn2(223171,0,0,18.0,1107,492.2,0); -- undead trigger
 		eq.spawn2(223172,0,0,11.5,857,492.5,0); -- water trigger
 		eq.spawn2(223173,0,0,13.2,574.2,492.3,0); -- fire trigger
+		UnlockPhaseOneDoors(entity_list);
+		UnlockPhaseTwoDoors(entity_list);
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase2") then
 		-- unlock all the phase 1 doors.
 		UnlockPhaseOneDoors(entity_list);
+		UnlockPhaseTwoDoors(entity_list);
 		-- offset event_started by the prior phase(s) since we are not starting at 1
 		event_started = event_started - 3600;
 		--UpdateFailTimer(3600,3600);
