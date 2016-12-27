@@ -35,7 +35,6 @@ function event_spawn(e)
 		e.self:GetNPCTypeID() == encPets[1] or
 		e.self:GetNPCTypeID() == encPets[2]) then
 			e.self:ModifyNPCStat("max_hp", tostring(e.self:GetHP() * 0.5 + e.self:GetHP()));
-			e.self:ModifyNPCStat("hp", tostring(e.self:GetHP() * 0.5 + e.self:GetHP()));
 			e.self:ModifyNPCStat("ac", tostring(e.self:GetAC() * 0.5 + e.self:GetAC()));
 			e.self:ModifyNPCStat("min_hit", tostring(e.self:GetMinDMG() * 2 + e.self:GetMinDMG()));
 			e.self:ModifyNPCStat("max_hit", tostring(e.self:GetMaxDMG() * 2 + e.self:GetMaxDMG()));
