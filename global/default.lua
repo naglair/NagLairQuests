@@ -10,7 +10,7 @@ end
 
 -- Adjust lvl 61+ pets
 function event_spawn(e)
- 	local magPets = { 756, 751, 766, 761, 566, 613, 596, 581 };
+ 	local magPets = { 755, 756, 751, 765, 766, 761, 565, 566, 613, 596, 581 };
 	local necPets = { 629, 630, 631, 632, 633 };
 	local bstPets = { 525, 526, 527, 528 };
 	local encPets = { 513, 514 };
