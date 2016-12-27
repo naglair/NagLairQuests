@@ -10,7 +10,7 @@ sub EVENT_ENTERZONE {
     $client->Message(15, "The world blurs around you as things go dark for a second...the creatures around you look a lot more vicious now...");
 	#move to instance
 	quest::AssignToInstance($gotoinstanceID);
-	quest::MovePCInstance(58, $gotoinstanceID, 13, -60, 4.10);
+	quest::MovePCInstance(58, $gotoinstanceID, 165, -630, 4);
   }
   else {
 	    $client->Message(15, "Sorry, no super crushbone for you!");
