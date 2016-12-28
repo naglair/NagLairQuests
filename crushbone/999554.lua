@@ -1,6 +1,6 @@
 function event_death(e)
-	for i=1, 4 do
-		e.self:AddItem(eq.ChooseRandom(68719, 68712, 68715, 68722, 68706, 68714, 68704, 68710, 68703, 68708, 68717, 68720, 68701, 68711), 1);
+	for i=1, 2 do
+		e.self:AddItem(eq.ChooseRandom(52120, 52121, 52122 ,52123, 52124), 1);
 	end
 end
 
